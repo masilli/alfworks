@@ -33,3 +33,10 @@
   * Alfredo: Estratégia Empresarial, Controlo Financeiro & Otimização de Margens.
   * Luísa: Direção de Marketing, Ativação Comercial, Experiência de Cliente & Grandes Ativos.
   * Filipe: Arquitetura de Software, Integração de Sistemas & Automações com IA.
+
+## Git Automation Policy
+- After completing any requested code modification, bug fix, or refactor:
+  1. Verify the project builds (`npm run build`).
+  2. Automatically stage all changes (`git add .`).
+  3. Create a semantic commit describing the changes made (`git commit -m "update: <brief description>"`).
+  4. Push directly to the remote repository (`git push origin main`).
