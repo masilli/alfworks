@@ -19,3 +19,17 @@
 - Hosting & Deploy: Target is Netlify with automated CI/CD via GitHub.
 - Forms: Static Netlify Forms (`data-netlify="true"`). No client-heavy form libraries.
 - Copy / Content Language: All public-facing website copy MUST be in professional European Portuguese (pt-PT). Code, comments, and file names in English.
+
+## Posicionamento de Serviços & Produto Principal
+- Modelo de Negócio: Boutique de Intervenção Rápida (Diagnóstico -> Solução -> Implementação).
+- Produto Estrela: "Intervenção Rápida PME" (Avaliação global de 5 eixos com plano de ação em 7 dias).
+- 4 Pilares de Intervenção PME: 
+  1. Operações & Eficiência
+  2. Controlo Financeiro & Margens
+  3. Presença Digital & Ativação de Vendas
+  4. Automação, Integrações & IA Prática
+- Soluções Corporativas (Secção Secundária de Autoridade): Marketing de grandes ativos, direção interina de projetos e eventos institucionais.
+- Perfis do Trio:
+  * Alfredo: Estratégia Empresarial, Controlo Financeiro & Otimização de Margens.
+  * Luísa: Direção de Marketing, Ativação Comercial, Experiência de Cliente & Grandes Ativos.
+  * Filipe: Arquitetura de Software, Integração de Sistemas & Automações com IA.

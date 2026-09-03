@@ -1,41 +1,53 @@
 ---
-import { ArrowRight, CheckCircle2, Clock, Gauge, TrendingUp } from 'lucide-astro';
+import { ArrowRight, BarChart3, Bot, CalendarCheck, Globe, Layers } from 'lucide-astro';
 
 const pillars = [
   {
     number: '01',
-    title: 'Otimização Operacional',
-    icon: Gauge,
-    summary: 'Mapeamento de processos, eliminação de redundâncias e automação de fluxos diários.',
-    bullets: [
-      'Auditoria exaustiva a rotinas e tempos de execução',
-      'Eliminação de estrangulamentos operacionais críticos',
-      'Automação inteligente de tarefas manuais e relatórios',
-      'Manuais de procedimentos práticos para a equipa',
+    title: 'Operações & Eficiência',
+    icon: Layers,
+    description:
+      'Mapeamento de processos, eliminação de tarefas manuais redundantes, organização de equipas e integração de colaboradores.',
+    subpoints: [
+      'Mapeamento detalhado de fluxos de trabalho',
+      'Eliminação cirúrgica de desperdício de tempo',
+      'Manuais de processo e onboarding de equipa',
     ],
   },
   {
     number: '02',
-    title: 'Presença Online & Conversão',
-    icon: TrendingUp,
-    summary: 'Ecossistemas web modernos, marcas e canais digitais orientados a resultados.',
-    bullets: [
-      'Arquitetura web de alta velocidade e conversão',
-      'Identidade visual e posicionamento de marca premium',
-      'Otimização da jornada de compra e captação de leads B2B',
-      'Instrumentação analítica rigorosa sem dados dispersos',
+    title: 'Finanças & Controlo de Gestão',
+    icon: BarChart3,
+    description:
+      'Diagnóstico de margens e pricing, previsão de tesouraria (cash-flow) e dashboards visuais para tomada de decisão em tempo real.',
+    subpoints: [
+      'Análise de rentabilidade por cliente e linha de serviço',
+      'Modelagem e controlo de fluxo de caixa operacional',
+      'Relatórios executivos e indicadores-chave (KPIs)',
     ],
   },
   {
     number: '03',
-    title: 'Estruturação Financeira & Métricas',
-    icon: CheckCircle2,
-    summary: 'Clarificação de margens, custos e métricas essenciais de apoio à decisão.',
-    bullets: [
-      'Cálculo preciso de margem por produto e cliente',
-      'Identificação e corte cirúrgico de custos invisíveis',
-      'Painéis de controlo de tesouraria em tempo real',
-      'Modelos de decisão e projeção de liquidez',
+    title: 'Presença Digital & Ativação Comercial',
+    icon: Globe,
+    description:
+      'Websites orientados à conversão de contactos, presença estratégica no Google e experiências/campanhas de atração local de clientes.',
+    subpoints: [
+      'Plataformas web de alta velocidade e conversão',
+      'Otimização de presença local e autoridade de marca',
+      'Mecanismos diretos de captação de potenciais clientes',
+    ],
+  },
+  {
+    number: '04',
+    title: 'Automação, Integrações & IA',
+    icon: Bot,
+    description:
+      'Conexão entre softwares dispersos (Faturação, CRM, Folhas de Cálculo), relatórios automáticos e assistentes de produtividade interna.',
+    subpoints: [
+      'Unificação de ferramentas e sincronização em tempo real',
+      'Relatórios e alertas automáticos para a gerência',
+      'Agentes e assistentes de IA para tarefas rotineiras',
     ],
   },
 ];
@@ -45,108 +57,131 @@ const pillars = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header (Swiss Asymmetric) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 pb-10 border-b border-zinc-200 items-end">
-      <div class="lg:col-span-8 space-y-4">
-        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#E11D48] uppercase tracking-widest">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 pb-12 border-b border-zinc-200 items-end">
+      <div class="lg:col-span-8 space-y-5">
+        <!-- Technical Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#F9F9FB] border border-zinc-200 text-xs font-mono font-bold uppercase tracking-wider text-[#111111]">
           <span class="w-2 h-2 bg-[#E11D48]"></span>
-          SERVIÇO PRINCIPAL EM DESTAQUE
+          [Boutique de Intervenção Rápida]
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tighter text-[#111111] leading-tight">
-          Consultoria Estratégica & Intervenção Rápida
+
+        <!-- Main Headline -->
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-[#111111] leading-[1.06]">
+          Sabemos exatamente onde a sua empresa está a perder tempo, dinheiro e clientes.
         </h2>
+
+        <!-- Subhead -->
         <p class="text-base sm:text-lg text-[#666666] max-w-3xl leading-relaxed">
-          Modelo boutique desenhado especificamente para diagnosticar e solucionar os 3 gargalos críticos que travam a competitividade e rentabilidade de Pequenas e Médias Empresas.
+          Não vendemos relatórios teóricos. Diagnosticamos os gargalos operacionais e financeiros, estruturamos a solução e deixamos os sistemas a funcionar.
         </p>
       </div>
 
       <div class="lg:col-span-4 lg:text-right">
-        <div class="inline-block p-4 border border-zinc-200 bg-[#F9F9FB] text-left text-xs font-mono text-[#666666] space-y-1">
-          <div class="font-bold text-[#111111]">MÉTODO: ALGO-RHYTHM</div>
+        <div class="inline-block p-5 border border-zinc-200 bg-[#F9F9FB] text-left text-xs font-mono text-[#666666] space-y-1.5">
+          <div class="font-bold text-[#111111]">FILOSOFIA OPERACIONAL</div>
           <div>Diagnóstico ➔ Ação ➔ Validação</div>
-          <div class="text-[#E11D48] pt-1 font-semibold">Sem apresentações teóricas.</div>
+          <div class="text-[#E11D48] pt-1 font-semibold">Execução sem ruído.</div>
         </div>
       </div>
     </div>
 
-    <!-- 3-Column Modular Grid with Subtle 1px Border Dividers -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-200 border border-zinc-200">
+    <!-- The Flagship Product Banner (Intervenção 7 Dias) -->
+    <div class="mb-16 border border-zinc-200 bg-[#F9F9FB] p-8 sm:p-12 relative overflow-hidden">
+      <!-- Left Swiss Red Accent Line -->
+      <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#E11D48]"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold uppercase tracking-wider bg-white border border-zinc-200 text-[#E11D48]">
+              <CalendarCheck class="w-3.5 h-3.5" />
+              INTERVENÇÃO EM 7 DIAS
+            </span>
+            <span class="text-xs font-mono text-[#666666] uppercase tracking-wider">
+              FLAGSHIP SPRINT
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#111111]">
+              PME Action Sprint
+            </h3>
+            <p class="text-xs sm:text-sm font-mono text-[#666666] mt-1">
+              (Auditoria rápida & Plano de Ação em 7 dias)
+            </p>
+          </div>
+
+          <p class="text-sm sm:text-base text-[#666666] max-w-2xl leading-relaxed">
+            Analisamos Operações, Finanças, Digital, Tecnologia e Vendas para entregar prioridades imediatas de corte de desperdício e aumento de margem.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 lg:text-right flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-start lg:justify-center gap-3">
+          <a
+            href="#contacto"
+            class="group inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150 w-full sm:w-auto text-center"
+          >
+            <span>Solicitar Diagnóstico Inicial</span>
+            <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <span class="text-[11px] font-mono text-[#666666]">
+            Vagas limitadas por mês • Reunião direta com sócios
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- The 4-Pillar Modular Grid (Swiss 2x2 Grid with 1px zinc borders) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 border border-zinc-200">
       {
         pillars.map((pillar) => {
           const Icon = pillar.icon;
           return (
-            <div class="bg-white p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:bg-zinc-50/50 transition-colors">
+            <div class="bg-white p-8 sm:p-12 flex flex-col justify-between space-y-8 hover:bg-zinc-50/60 transition-colors">
               <div class="space-y-6">
-                <!-- Card Header -->
-                <div class="flex items-center justify-between border-b border-zinc-100 pb-4">
-                  <span class="font-mono text-xl sm:text-2xl font-black text-[#111111] tracking-tight">
-                    {pillar.number}
-                  </span>
-                  <div class="w-8 h-8 flex items-center justify-center border border-zinc-200 bg-[#F9F9FB] text-[#111111]">
+                <!-- Card Header: Monospaced Number & Icon Container -->
+                <div class="flex items-center justify-between border-b border-zinc-100 pb-5">
+                  <div class="flex items-baseline gap-2">
+                    <span class="font-mono text-2xl sm:text-3xl font-black text-[#111111] tracking-tight">
+                      {pillar.number}
+                    </span>
+                    <span class="text-xs font-mono text-[#666666] tracking-wider">/ 04</span>
+                  </div>
+                  <div class="w-10 h-10 flex items-center justify-center border border-zinc-200 bg-[#F9F9FB] text-[#111111]">
                     <Icon class="w-4 h-4" />
                   </div>
                 </div>
 
                 <!-- Title & Core Concept -->
-                <div class="space-y-2">
-                  <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-[#111111]">
+                <div class="space-y-3">
+                  <h3 class="text-2xl font-bold tracking-tight text-[#111111]">
                     {pillar.title}
                   </h3>
-                  <p class="text-sm text-[#666666] leading-relaxed">
-                    {pillar.summary}
+                  <p class="text-sm sm:text-base text-[#666666] leading-relaxed">
+                    {pillar.description}
                   </p>
                 </div>
 
-                <!-- Technical Bullets -->
-                <ul class="pt-4 space-y-2.5 border-t border-zinc-100 text-xs text-[#111111] font-normal">
-                  {pillar.bullets.map((bullet) => (
+                <!-- Scope Sub-points -->
+                <ul class="pt-4 space-y-2.5 border-t border-zinc-100 text-xs text-[#111111]">
+                  {pillar.subpoints.map((point) => (
                     <li class="flex items-start gap-2.5">
                       <span class="w-1.5 h-1.5 bg-[#E11D48] mt-1.5 flex-shrink-0" />
-                      <span class="leading-normal">{bullet}</span>
+                      <span class="leading-normal">{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <!-- Modular Card Footer Indicator -->
+              <!-- Modular Card Footer -->
               <div class="pt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-[#666666]">
                 <span>PILAR {pillar.number}</span>
-                <span class="text-[#111111] font-semibold">IMPLEMENTAÇÃO DIRETA</span>
+                <span class="text-[#111111] font-semibold">ENTREGA TESTADA</span>
               </div>
             </div>
           );
         })
       }
-    </div>
-
-    <!-- Bottom Highlighted Banner: Diagnóstico Operacional em 72h -->
-    <div class="mt-12 border border-zinc-200 bg-[#F9F9FB] p-6 sm:p-10 relative overflow-hidden">
-      <!-- Left Swiss Accent Line -->
-      <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#E11D48]"></div>
-
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pl-2 sm:pl-4">
-        <div class="space-y-2 max-w-2xl">
-          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#E11D48]">
-            <Clock class="w-3.5 h-3.5" />
-            RESPOSTA EM TEMPO RECORD
-          </div>
-          <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#111111]">
-            Diagnóstico Operacional em 72h
-          </h3>
-          <p class="text-sm sm:text-base text-[#666666] leading-relaxed">
-            Submeta o principal desafio da sua empresa. Em 72 horas úteis, realizamos uma sessão de análise preliminar e entregamos um relatório executivo com os 3 pontos de intervenção imediata.
-          </p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 flex-shrink-0">
-          <a
-            href="#contacto"
-            class="group inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150"
-          >
-            <span>Agendar Diagnóstico 72h</span>
-            <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-        </div>
-      </div>
     </div>
 
   </div>

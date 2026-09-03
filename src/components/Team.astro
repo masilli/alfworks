@@ -1,33 +1,45 @@
 ---
-import { Briefcase, Code, Compass, Sparkles } from 'lucide-astro';
+import { ArrowRight, Briefcase, Building2, Code, Compass } from 'lucide-astro';
 
 const founders = [
   {
     initial: 'A',
     name: 'Alfredo',
-    role: 'Estratégia, Gestão & Eficiência de Negócio',
-    pillar: 'Estratégia & Operações',
+    role: 'Estratégia Empresarial & Gestão Financeira',
+    pillar: 'Estratégia & Finanças',
     icon: Briefcase,
-    bio: 'Especialista em reestruturação operacional, modelação financeira e alinhamento de processos de crescimento sustentável para PMEs e empresas industriais.',
-    focus: ['Estruturação Financeira', 'Otimização de Custos', 'Negociação & M&A'],
+    bio: 'Foco em diagnóstico de rentabilidade, cálculo de margens e reestruturação estratégica para PMEs.',
+    focus: [
+      'Diagnóstico de Rentabilidade',
+      'Cálculo de Margens & Pricing',
+      'Reestruturação Estratégica PME',
+    ],
   },
   {
     initial: 'L',
     name: 'Luísa',
-    role: 'Direção Criativa, Design de Produto & Conteúdo',
-    pillar: 'Design & Produto',
+    role: 'Marketing de Ativos, Ativação Comercial & Protocolo',
+    pillar: 'Marketing & Grandes Ativos',
     icon: Compass,
-    bio: 'Lidera a arquitetura de marca, design de interfaces e narrativa digital. Focada em posicionamento de elevado valor, clareza tipográfica e experiência do utilizador.',
-    focus: ['Sistemas de Design', 'Brand Identity', 'Arquitetura de Conversão'],
+    bio: 'Especialista em dinamização de vendas, auditoria de experiência de cliente (CX) e gestão de grandes ecossistemas de retalho e marcas.',
+    focus: [
+      'Dinamização Comercial & Vendas',
+      'Auditoria de Experiência (CX)',
+      'Gestão de Retalho & Marcas',
+    ],
   },
   {
     initial: 'F',
     name: 'Filipe',
-    role: 'Engenharia de Software, Sistemas & Automações',
-    pillar: 'Tecnologia & IA',
+    role: 'Engenharia de Software, Sistemas & Automação',
+    pillar: 'Sistemas & Engenharia',
     icon: Code,
-    bio: 'Arquiteto de sistemas web de elevado desempenho, automações de backoffice e integração de modelos de IA aplicados a fluxos operacionais reais.',
-    focus: ['Engenharia Full-Stack', 'Pipelines & Integrações', 'Agentes Autónomos'],
+    bio: 'Especialista em transformar operações manuais em infraestruturas digitais eficientes, integração de sistemas empresariais e arquitetura de dados.',
+    focus: [
+      'Infraestruturas Digitais',
+      'Integração de Sistemas',
+      'Arquitetura de Dados & IA',
+    ],
   },
 ];
 ---
@@ -35,6 +47,55 @@ const founders = [
 <section id="sobre" class="border-b border-zinc-200 bg-white py-20 sm:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
+    <!-- Corporate & Large Assets Module (Discreet High-Authority Block) -->
+    <div class="mb-20 border border-zinc-200 bg-[#F9F9FB] p-8 sm:p-12 relative overflow-hidden">
+      <!-- Left High-Contrast Accent Strip -->
+      <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#111111]"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pl-2 sm:pl-4">
+        <div class="lg:col-span-8 space-y-4">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#111111]">
+            <Building2 class="w-3.5 h-3.5 text-[#E11D48]" />
+            <span>ÂMBITO ENTERPRISE & INFRAESTRUTURAS</span>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#111111]">
+            Grandes Ativos & Gestão Corporativa
+          </h3>
+
+          <p class="text-sm sm:text-base text-[#666666] leading-relaxed max-w-3xl">
+            Para multinacionais, centros comerciais e grandes infraestruturas, desenhamos intervenções dedicadas: Marketing de Ativos e mediação com múltiplos lojistas (tenant management), Direção Interina de Projetos em transições organizacionais e Produção Executiva com gestão rigorosa de protocolo institucional.
+          </p>
+
+          <!-- 3 Micro-pills of Enterprise Competencies -->
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 bg-white border border-zinc-200 text-xs font-mono text-[#111111]">
+              Tenant Management
+            </span>
+            <span class="px-2.5 py-1 bg-white border border-zinc-200 text-xs font-mono text-[#111111]">
+              Direção Interina
+            </span>
+            <span class="px-2.5 py-1 bg-white border border-zinc-200 text-xs font-mono text-[#111111]">
+              Protocolo Institucional
+            </span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 lg:text-right flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-start lg:justify-center gap-3">
+          <a
+            href="#contacto"
+            class="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150 w-full sm:w-auto text-center"
+          >
+            <span>Consulta Corporativa</span>
+            <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <span class="text-[11px] font-mono text-[#666666]">
+            Alinhamento confidencial de âmbito institucional
+          </span>
+        </div>
+      </div>
+    </div>
+
     <!-- Section Header (Swiss Asymmetric) -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 pb-10 border-b border-zinc-200 items-end">
       <div class="lg:col-span-8 space-y-4">
@@ -46,7 +107,7 @@ const founders = [
           O Trio por Detrás da Máquina
         </h2>
         <p class="text-base sm:text-lg text-[#666666] max-w-3xl leading-relaxed">
-          O acrónimo <strong class="text-[#111111] font-bold">ALF</strong> sintetiza a união de <span class="text-[#111111] font-semibold">Alfredo</span>, <span class="text-[#111111] font-semibold">Luísa</span> e <span class="text-[#111111] font-semibold">Filipe</span>: uma interseção pragmática e complementar de Estratégia Corporativa, Design de Produto e Engenharia de Software.
+          O acrónimo <strong class="text-[#111111] font-bold">ALF</strong> sintetiza a união de <span class="text-[#111111] font-semibold">Alfredo</span>, <span class="text-[#111111] font-semibold">Luísa</span> e <span class="text-[#111111] font-semibold">Filipe</span>: uma interseção pragmática e complementar de Estratégia Corporativa, Ativação Comercial e Engenharia de Software.
         </p>
       </div>
 
@@ -92,7 +153,7 @@ const founders = [
                   </p>
                 </div>
 
-                <!-- Narrative Biography -->
+                <!-- Precision Biography -->
                 <p class="text-sm text-[#666666] leading-relaxed">
                   {founder.bio}
                 </p>
@@ -100,7 +161,7 @@ const founders = [
                 <!-- Key Focus Competencies -->
                 <div class="pt-4 border-t border-zinc-100 space-y-2">
                   <span class="text-[11px] font-mono text-[#666666] uppercase tracking-wider block">
-                    Áreas de Intervenção:
+                    Foco de Atuação:
                   </span>
                   <ul class="space-y-1.5 text-xs text-[#111111]">
                     {founder.focus.map((item) => (
