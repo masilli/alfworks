@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ConsultingHighlight from '../components/ConsultingHighlight.astro';
+import VentureLab from '../components/VentureLab.astro';
+import Team from '../components/Team.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <Hero />
+
+    <!-- Primary Spotlight: Consulting Section (#consultoria) -->
+    <ConsultingHighlight />
+
+    <!-- Venture Lab & Studio Verticals (#venture-lab) -->
+    <VentureLab />
+
+    <!-- Team & Studio Identity (#sobre) -->
+    <Team />
+
+    <!-- Contact & Diagnostic Request (#contacto) -->
+    <Contact />
+  </main>
+
+  <!-- Site Footer -->
+  <Footer />
+</Layout>
+

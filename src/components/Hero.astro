@@ -1,0 +1,137 @@
+---
+import { ArrowRight, ArrowUpRight, Cpu, Layers, Sparkles } from 'lucide-astro';
+
+const modularTags = [
+  { id: '01', label: 'Operações', icon: Layers },
+  { id: '02', label: 'Presença Digital', icon: Sparkles },
+  { id: '03', label: 'Sistemas & IA', icon: Cpu },
+];
+---
+
+<section class="border-b border-zinc-200 bg-[#F9F9FB] relative overflow-hidden">
+  <!-- Top Technical Utility Bar -->
+  <div class="border-b border-zinc-200 bg-white/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#666666]">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 text-[#111111] font-semibold">
+          <span class="w-2 h-2 rounded-none bg-[#E11D48] animate-pulse"></span>
+          DISPONIBILIDADE
+        </span>
+        <span class="hidden sm:inline text-zinc-300">|</span>
+        <span class="hidden sm:inline">Q1/Q2 Intervenções Ativas: 2 Vagas Restantes</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>SISTEMA: ALF-OS v2.4</span>
+        <span class="text-zinc-300">|</span>
+        <span>LISBOA • PORTO</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-stretch">
+      
+      <!-- Left Hero Core (Asymmetric 8 cols) -->
+      <div class="lg:col-span-8 flex flex-col justify-between space-y-8 lg:pr-8">
+        <div class="space-y-6">
+          <!-- Modular Technical Tags -->
+          <div class="flex flex-wrap items-center gap-2">
+            {
+              modularTags.map((tag) => (
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-zinc-200 text-xs font-mono font-medium text-[#111111]">
+                  <span class="text-[#E11D48] font-bold">[{tag.id}]</span>
+                  <span>{tag.label}</span>
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- Bold Asymmetric Swiss Headline -->
+          <h1 class="text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold tracking-tighter text-[#111111] leading-[1.04]">
+            Oficina de intervenção estratégica e entrega digital para PMEs.
+          </h1>
+
+          <!-- High Information Clarity Subheadline -->
+          <p class="text-lg sm:text-xl text-[#666666] max-w-2xl leading-relaxed font-normal">
+            Otimizamos a operação, modernizamos a presença online e resolvemos os nós operacionais que bloqueiam o crescimento do seu negócio.
+          </p>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+          <a
+            href="#contacto"
+            class="group inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150"
+          >
+            <span>Solicitar Intervenção</span>
+            <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+          <a
+            href="#venture-lab"
+            class="group inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-white border border-zinc-300 text-[#111111] text-xs font-semibold uppercase tracking-wider hover:border-[#111111] hover:bg-[#111111] hover:text-white transition-all duration-150"
+          >
+            <span>Explorar o Laboratório</span>
+            <ArrowUpRight class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Modular Data Grid (Asymmetric 4 cols) -->
+      <div class="lg:col-span-4 border border-zinc-200 bg-white flex flex-col justify-between">
+        <!-- Panel Header -->
+        <div class="border-b border-zinc-200 p-6 bg-[#F9F9FB]">
+          <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
+            <span>QUADRO OPERACIONAL</span>
+            <span class="font-bold text-[#E11D48]">DOC. 001</span>
+          </div>
+          <h2 class="text-lg font-bold text-[#111111] mt-2 tracking-tight">
+            Modelo de Ação Direta
+          </h2>
+          <p class="text-xs text-[#666666] mt-1">
+            Intervenções sem consultoria oca: implementação no terreno com entregáveis mensuráveis.
+          </p>
+        </div>
+
+        <!-- Metric / Focus Modules -->
+        <div class="divide-y divide-zinc-200">
+          <div class="p-6 space-y-1">
+            <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
+              <span>VELOCIDADE DE DIAGNÓSTICO</span>
+              <span class="font-bold text-[#111111]">72 HORAS</span>
+            </div>
+            <p class="text-xs text-[#666666] leading-normal pt-1">
+              Avaliação de processos críticos e apresentação de plano corretivo de curto prazo.
+            </p>
+          </div>
+
+          <div class="p-6 space-y-1">
+            <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
+              <span>EQUIPA DEDICADA</span>
+              <span class="font-bold text-[#111111]">SÓCIOS SENIORES</span>
+            </div>
+            <p class="text-xs text-[#666666] leading-normal pt-1">
+              Execução direta conduzida exclusivamente pelos fundadores (Alfredo, Luísa e Filipe).
+            </p>
+          </div>
+
+          <div class="p-6 space-y-1">
+            <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
+              <span>FOCO PRINCIPAL</span>
+              <span class="font-bold text-[#E11D48]">ROI OPERACIONAL</span>
+            </div>
+            <p class="text-xs text-[#666666] leading-normal pt-1">
+              Redução de custos ocultos e aumento imediato da capacidade produtiva da equipa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Panel Footer -->
+        <div class="p-4 bg-zinc-50 border-t border-zinc-200 text-[11px] font-mono text-[#666666] flex items-center justify-between">
+          <span>ALF WORKS STUDIO</span>
+          <span class="text-[#111111] font-semibold">alfworks.com</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

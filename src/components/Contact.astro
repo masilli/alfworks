@@ -1,0 +1,188 @@
+---
+import { ArrowRight, CheckCircle2, Clock, Mail, ShieldCheck } from 'lucide-astro';
+---
+
+<section id="contacto" class="border-b border-zinc-200 bg-[#F9F9FB] py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Left Column: Context & Guarantees (5 cols) -->
+      <div class="lg:col-span-5 space-y-8">
+        <div class="space-y-4">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#E11D48] uppercase tracking-widest">
+            <span class="w-2 h-2 bg-[#E11D48]"></span>
+            04 / CONTACTO & DIAGNÓSTICO
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tighter text-[#111111] leading-tight">
+            Vamos desbloquear o potencial da sua empresa?
+          </h2>
+          <p class="text-base sm:text-lg text-[#666666] leading-relaxed">
+            Partilhe connosco o principal desafio operacional ou projeto digital que pretende implementar. Falamos diretamente consigo, sem intermediários comerciais.
+          </p>
+        </div>
+
+        <!-- Direct Contact Points / SLA Cards -->
+        <div class="space-y-4 font-mono text-xs">
+          <div class="border border-zinc-200 bg-white p-5 space-y-2">
+            <div class="flex items-center gap-2 text-[#111111] font-bold uppercase tracking-wider">
+              <Clock class="w-4 h-4 text-[#E11D48]" />
+              <span>Compromisso de Resposta</span>
+            </div>
+            <p class="text-[#666666] leading-normal font-sans text-xs">
+              Análise preliminar em 24 horas úteis e proposta de agendamento de diagnóstico.
+            </p>
+          </div>
+
+          <div class="border border-zinc-200 bg-white p-5 space-y-2">
+            <div class="flex items-center gap-2 text-[#111111] font-bold uppercase tracking-wider">
+              <ShieldCheck class="w-4 h-4 text-[#E11D48]" />
+              <span>Confidencialidade Rigorosa</span>
+            </div>
+            <p class="text-[#666666] leading-normal font-sans text-xs">
+              Todos os dados e detalhes da sua operação são protegidos sob cláusula tácita de confidencialidade (NDA standard sob pedido).
+            </p>
+          </div>
+
+          <div class="border border-zinc-200 bg-white p-5 space-y-2">
+            <div class="flex items-center gap-2 text-[#111111] font-bold uppercase tracking-wider">
+              <Mail class="w-4 h-4 text-[#E11D48]" />
+              <span>Canal Direto</span>
+            </div>
+            <p class="text-[#666666] leading-normal font-sans text-xs">
+              Prefere e-mail direto? Escreva para <a href="mailto:ola@alfworks.com" class="text-[#111111] underline hover:text-[#E11D48]">ola@alfworks.com</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Netlify Static Form (7 cols) -->
+      <div class="lg:col-span-7 border border-zinc-200 bg-white p-8 sm:p-12">
+        <div class="border-b border-zinc-200 pb-6 mb-8 flex items-center justify-between">
+          <div>
+            <span class="text-xs font-mono text-[#666666] uppercase tracking-wider block mb-1">FORMULÁRIO DE ENTRADA</span>
+            <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-[#111111]">
+              Pedido de Intervenção
+            </h3>
+          </div>
+          <span class="text-xs font-mono text-[#E11D48] bg-zinc-100 px-2.5 py-1 font-semibold">
+            SEC-DIAG
+          </span>
+        </div>
+
+        <!-- Static Netlify Form as specified -->
+        <form
+          name="alfworks-contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="space-y-6"
+        >
+          <!-- Netlify hidden inputs -->
+          <input type="hidden" name="form-name" value="alfworks-contact" />
+          <p class="hidden">
+            <label>Não preencher este campo: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Nome -->
+            <div>
+              <label for="nome" class="block text-xs font-mono font-bold uppercase tracking-wider text-[#111111] mb-2">
+                Nome Completo *
+              </label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                required
+                placeholder="Ex: João Silva"
+                class="w-full px-3.5 py-3 text-sm bg-white border border-zinc-300 rounded-none text-[#111111] placeholder:text-zinc-400 focus:border-[#111111] focus:ring-1 focus:ring-[#111111] focus:outline-none transition-colors"
+              />
+            </div>
+
+            <!-- E-mail -->
+            <div>
+              <label for="email" class="block text-xs font-mono font-bold uppercase tracking-wider text-[#111111] mb-2">
+                E-mail Profissional *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Ex: joao@empresa.pt"
+                class="w-full px-3.5 py-3 text-sm bg-white border border-zinc-300 rounded-none text-[#111111] placeholder:text-zinc-400 focus:border-[#111111] focus:ring-1 focus:ring-[#111111] focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Empresa / Website -->
+            <div>
+              <label for="empresa_website" class="block text-xs font-mono font-bold uppercase tracking-wider text-[#111111] mb-2">
+                Empresa / Website
+              </label>
+              <input
+                type="text"
+                id="empresa_website"
+                name="empresa_website"
+                placeholder="Ex: Logística Silva Lda / www.silva.pt"
+                class="w-full px-3.5 py-3 text-sm bg-white border border-zinc-300 rounded-none text-[#111111] placeholder:text-zinc-400 focus:border-[#111111] focus:ring-1 focus:ring-[#111111] focus:outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Tipo de Necessidade Dropdown -->
+            <div>
+              <label for="tipo_necessidade" class="block text-xs font-mono font-bold uppercase tracking-wider text-[#111111] mb-2">
+                Tipo de Necessidade *
+              </label>
+              <select
+                id="tipo_necessidade"
+                name="tipo_necessidade"
+                required
+                class="w-full px-3.5 py-3 text-sm bg-white border border-zinc-300 rounded-none text-[#111111] focus:border-[#111111] focus:ring-1 focus:ring-[#111111] focus:outline-none transition-colors cursor-pointer"
+              >
+                <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="Consultoria Operacional">Consultoria Operacional</option>
+                <option value="Criação Digital">Criação Digital</option>
+                <option value="Automações/IA">Automações/IA</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Mensagem -->
+          <div>
+            <label for="mensagem" class="block text-xs font-mono font-bold uppercase tracking-wider text-[#111111] mb-2">
+              Descreva o Desafio ou Projeto *
+            </label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="4"
+              required
+              placeholder="Indique brevemente o contexto da sua empresa, constrangimentos atuais ou o âmbito pretendido..."
+              class="w-full px-3.5 py-3 text-sm bg-white border border-zinc-300 rounded-none text-[#111111] placeholder:text-zinc-400 focus:border-[#111111] focus:ring-1 focus:ring-[#111111] focus:outline-none transition-colors"
+            ></textarea>
+          </div>
+
+          <!-- High-Contrast Swiss-Style Submit Button with Clean Focus States -->
+          <div>
+            <button
+              type="submit"
+              class="group w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] focus:bg-[#E11D48] focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:outline-none transition-all duration-150 cursor-pointer"
+            >
+              <span>Submeter Pedido de Intervenção</span>
+              <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
+            <p class="text-[11px] font-mono text-[#666666] text-center mt-3">
+              Ao submeter, os seus dados destinam-se exclusivamente ao contacto de resposta pela equipa ALF WORKS.
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
