@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ArrowLeft, CheckCircle2 } from 'lucide-astro';
+---
+
+<Layout title="Mensagem Enviada — ALF WORKS" description="O seu pedido de diagnóstico foi recebido com sucesso pela equipa da ALF WORKS.">
+  <Header />
+
+  <main class="flex-grow flex items-center justify-center py-24 sm:py-32 bg-[#F9F9FB]">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <div class="border border-zinc-200 bg-white p-8 sm:p-14 space-y-6">
+        <div class="inline-flex items-center justify-center w-12 h-12 border border-zinc-200 bg-[#F9F9FB] text-[#E11D48] mx-auto">
+          <CheckCircle2 class="w-6 h-6" />
+        </div>
+
+        <div class="space-y-3">
+          <span class="text-xs font-mono tracking-widest text-[#E11D48] uppercase">[Pedido Recebido]</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#111111]">
+            Mensagem Enviada com Sucesso
+          </h1>
+          <p class="text-zinc-600 text-base leading-relaxed max-w-lg mx-auto">
+            Obrigado pelo contacto. A nossa equipa irá analisar o desafio operacional da sua empresa e responder no prazo de 24 a 48 horas úteis.
+          </p>
+        </div>
+
+        <div class="pt-6 border-t border-zinc-100 flex items-center justify-center">
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 px-6 py-3.5 bg-[#111111] text-white hover:bg-[#E11D48] text-xs font-semibold uppercase tracking-wider transition-colors"
+          >
+            <ArrowLeft class="w-4 h-4" />
+            <span>Voltar à Página Principal</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
