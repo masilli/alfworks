@@ -1,5 +1,14 @@
 ---
 import { ArrowUp } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].footer;
+const tNav = ui[lang].nav;
 ---
 
 <footer class="border-t border-zinc-200 bg-white py-12">
@@ -11,25 +20,30 @@ import { ArrowUp } from 'lucide-astro';
         <span class="inline-block w-2.5 h-2.5 bg-[#E11D48]"></span>
         <span class="font-bold text-[#111111] tracking-wider">ALF WORKS</span>
         <span class="text-zinc-300">|</span>
-        <span>ALF Works © 2026</span>
-        <span class="text-zinc-300">|</span>
-        <span>Todos os direitos reservados.</span>
+        <span>{t.copyright}</span>
       </div>
 
       <!-- Operational Base Notice -->
       <div class="text-center">
-        <span class="text-zinc-400">Base Operacional:</span>
-        <span class="text-[#111111] font-semibold">Lisboa, Porto & Funchal, Portugal</span>
+        <span class="text-zinc-400">{t.baseNoticePrefix}</span>
+        <span class="text-[#111111] font-semibold">{t.baseNotice}</span>
       </div>
 
-      <!-- Back to Top Anchor -->
-      <div>
+      <!-- Navigation & Back to Top Anchor -->
+      <div class="flex items-center gap-6">
+        <div class="hidden sm:flex items-center gap-4 text-xs">
+          <a href={tNav.consultingHref} class="hover:text-[#111111] transition-colors">{tNav.consulting}</a>
+          <a href={tNav.ventureLabHref} class="hover:text-[#111111] transition-colors">{tNav.ventureLab}</a>
+          <a href={tNav.aboutHref} class="hover:text-[#111111] transition-colors">{tNav.about}</a>
+          <a href={tNav.contactHref} class="hover:text-[#111111] transition-colors">{tNav.contact}</a>
+        </div>
+
         <a
           href="#"
-          aria-label="Voltar ao topo da página"
+          aria-label={t.backToTop}
           class="group inline-flex items-center gap-1.5 px-3 py-1.5 border border-zinc-200 hover:border-[#111111] hover:text-[#111111] text-[#666666] transition-colors"
         >
-          <span>Voltar ao topo</span>
+          <span>{t.backToTop}</span>
           <ArrowUp class="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
         </a>
       </div>

@@ -1,20 +1,31 @@
 ---
 import { ArrowUpRight, Menu, X } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].nav;
+
+const homeHref = lang === 'pt' ? '/' : '/en';
 
 const navItems = [
-  { label: 'Consultoria', href: '#consultoria' },
-  { label: 'Venture Lab', href: '#venture-lab' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: t.consulting, href: t.consultingHref },
+  { label: t.ventureLab, href: t.ventureLabHref },
+  { label: t.about, href: t.aboutHref },
+  { label: t.contact, href: t.contactHref },
 ];
 ---
 
 <header class="sticky top-0 z-50 w-full bg-[#F9F9FB]/95 backdrop-blur-sm border-b border-zinc-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
+      
       <!-- Monospaced / Bold Brand Mark -->
       <a
-        href="/"
+        href={homeHref}
         class="group flex items-center gap-2.5 font-mono font-bold text-base sm:text-lg tracking-wider text-[#111111] transition-colors"
       >
         <span class="inline-block w-2.5 h-2.5 bg-[#E11D48] transition-transform group-hover:scale-110"></span>
@@ -35,13 +46,44 @@ const navItems = [
         }
       </nav>
 
-      <!-- High-Contrast CTA Button & Mobile Toggle -->
-      <div class="flex items-center gap-3">
+      <!-- Language Switcher & High-Contrast CTA Button & Mobile Toggle -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        
+        <!-- Swiss Minimalist Language Switcher -->
+        <div class="inline-flex items-center border border-zinc-200 bg-white text-xs font-mono">
+          <a
+            href="/"
+            class={`px-2 py-1 transition-colors ${
+              lang === 'pt'
+                ? 'bg-[#111111] text-[#F9F9FB] font-bold'
+                : 'text-[#666666] hover:text-[#111111] hover:bg-zinc-50'
+            }`}
+            aria-label="Mudar para Português"
+            aria-current={lang === 'pt' ? 'true' : 'false'}
+          >
+            PT
+          </a>
+          <span class="w-px h-3 bg-zinc-200"></span>
+          <a
+            href="/en"
+            class={`px-2 py-1 transition-colors ${
+              lang === 'en'
+                ? 'bg-[#111111] text-[#F9F9FB] font-bold'
+                : 'text-[#666666] hover:text-[#111111] hover:bg-zinc-50'
+            }`}
+            aria-label="Switch to English"
+            aria-current={lang === 'en' ? 'true' : 'false'}
+          >
+            EN
+          </a>
+        </div>
+
+        <!-- High-Contrast CTA Button -->
         <a
-          href="#contacto"
+          href={t.contactHref}
           class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150"
         >
-          <span>Falar Connosco</span>
+          <span>{t.cta}</span>
           <ArrowUpRight class="w-3.5 h-3.5" />
         </a>
 
@@ -49,7 +91,7 @@ const navItems = [
         <button
           id="mobile-menu-toggle"
           type="button"
-          aria-label="Abrir menu"
+          aria-label={lang === 'pt' ? 'Abrir menu' : 'Open menu'}
           aria-expanded="false"
           aria-controls="mobile-menu"
           class="md:hidden p-2 text-[#111111] hover:text-[#E11D48] transition-colors focus:outline-none"
@@ -77,12 +119,41 @@ const navItems = [
           </a>
         ))
       }
+      
+      <!-- Mobile Language Switcher Row -->
+      <div class="pt-2 flex items-center justify-between border-b border-zinc-100 pb-3">
+        <span class="text-xs font-mono text-[#666666] uppercase">Idioma / Language:</span>
+        <div class="inline-flex items-center border border-zinc-200 bg-white text-xs font-mono">
+          <a
+            href="/"
+            class={`px-2.5 py-1 ${
+              lang === 'pt'
+                ? 'bg-[#111111] text-white font-bold'
+                : 'text-[#666666]'
+            }`}
+          >
+            PT
+          </a>
+          <span class="w-px h-3 bg-zinc-200"></span>
+          <a
+            href="/en"
+            class={`px-2.5 py-1 ${
+              lang === 'en'
+                ? 'bg-[#111111] text-white font-bold'
+                : 'text-[#666666]'
+            }`}
+          >
+            EN
+          </a>
+        </div>
+      </div>
+
       <div class="pt-2">
         <a
-          href="#contacto"
+          href={t.contactHref}
           class="mobile-nav-link flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#111111] text-[#F9F9FB] text-sm font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors"
         >
-          <span>Falar Connosco</span>
+          <span>{t.cta}</span>
           <ArrowUpRight class="w-4 h-4" />
         </a>
       </div>

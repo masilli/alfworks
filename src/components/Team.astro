@@ -1,50 +1,25 @@
 ---
 import { ArrowRight, Briefcase, Building2, Code, Compass } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
 
-const founders = [
-  {
-    initial: 'A',
-    name: 'Alfredo',
-    role: 'Estratégia Empresarial & Gestão Financeira',
-    pillar: 'Estratégia & Finanças',
-    icon: Briefcase,
-    bio: 'Foco em diagnóstico de rentabilidade, cálculo de margens e reestruturação estratégica para PMEs.',
-    focus: [
-      'Diagnóstico de Rentabilidade',
-      'Cálculo de Margens & Pricing',
-      'Reestruturação Estratégica PME',
-    ],
-  },
-  {
-    initial: 'L',
-    name: 'Luísa',
-    role: 'Marketing de Ativos, Ativação Comercial & Protocolo',
-    pillar: 'Marketing & Grandes Ativos',
-    icon: Compass,
-    bio: 'Especialista em dinamização de vendas, auditoria de experiência de cliente (CX) e gestão de grandes ecossistemas de retalho e marcas.',
-    focus: [
-      'Dinamização Comercial & Vendas',
-      'Auditoria de Experiência (CX)',
-      'Gestão de Retalho & Marcas',
-    ],
-  },
-  {
-    initial: 'F',
-    name: 'Filipe',
-    role: 'Engenharia de Software, Sistemas & Automação',
-    pillar: 'Sistemas & Engenharia',
-    icon: Code,
-    bio: 'Especialista em transformar operações manuais em infraestruturas digitais eficientes, integração de sistemas empresariais e arquitetura de dados.',
-    focus: [
-      'Infraestruturas Digitais',
-      'Integração de Sistemas',
-      'Arquitetura de Dados & IA',
-    ],
-  },
-];
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const tCorp = ui[lang].corporate;
+const tTeam = ui[lang].team;
+
+const contactHref = lang === 'pt' ? '#contacto' : '#contact';
+
+const icons = [Briefcase, Compass, Code];
 ---
 
-<section id="sobre" class="border-b border-zinc-200 bg-white py-20 sm:py-28">
+<!-- Section Container with dual ID support (#sobre & #about) -->
+<section id="sobre" class="border-b border-zinc-200 bg-white py-20 sm:py-28 relative">
+  <!-- Anchor alias for English navigation -->
+  <div id="about" class="absolute -top-20"></div>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Corporate & Large Assets Module (Discreet High-Authority Block) -->
@@ -56,41 +31,39 @@ const founders = [
         <div class="lg:col-span-8 space-y-4">
           <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#111111]">
             <Building2 class="w-3.5 h-3.5 text-[#E11D48]" />
-            <span>ÂMBITO ENTERPRISE & INFRAESTRUTURAS</span>
+            <span>{tCorp.badge}</span>
           </div>
 
           <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#111111]">
-            Grandes Ativos & Gestão Corporativa
+            {tCorp.title}
           </h3>
 
           <p class="text-sm sm:text-base text-[#666666] leading-relaxed max-w-3xl">
-            Para multinacionais, centros comerciais e grandes infraestruturas, desenhamos intervenções dedicadas: Marketing de Ativos e mediação com múltiplos lojistas (tenant management), Direção Interina de Projetos em transições organizacionais e Produção Executiva com gestão rigorosa de protocolo institucional.
+            {tCorp.desc}
           </p>
 
           <!-- 3 Micro-pills of Enterprise Competencies -->
           <div class="flex flex-wrap gap-2 pt-2">
-            <span class="px-2.5 py-1 bg-white border border-zinc-200 text-xs font-mono text-[#111111]">
-              Tenant Management
-            </span>
-            <span class="px-2.5 py-1 bg-white border border-zinc-200 text-xs font-mono text-[#111111]">
-              Direção Interina
-            </span>
-            <span class="px-2.5 py-1 bg-white border border-zinc-200 text-xs font-mono text-[#111111]">
-              Protocolo Institucional
-            </span>
+            {
+              tCorp.pills.map((pill) => (
+                <span class="px-2.5 py-1 bg-white border border-zinc-200 text-xs font-mono text-[#111111]">
+                  {pill}
+                </span>
+              ))
+            }
           </div>
         </div>
 
         <div class="lg:col-span-4 lg:text-right flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-start lg:justify-center gap-3">
           <a
-            href="#contacto"
+            href={contactHref}
             class="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150 w-full sm:w-auto text-center"
           >
-            <span>Consulta Corporativa</span>
+            <span>{tCorp.cta}</span>
             <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
           <span class="text-[11px] font-mono text-[#666666]">
-            Alinhamento confidencial de âmbito institucional
+            {tCorp.sub}
           </span>
         </div>
       </div>
@@ -101,21 +74,21 @@ const founders = [
       <div class="lg:col-span-8 space-y-4">
         <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#E11D48] uppercase tracking-widest">
           <span class="w-2 h-2 bg-[#E11D48]"></span>
-          03 / OS FUNDADORES & IDENTIDADE
+          {tTeam.badge}
         </div>
         <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tighter text-[#111111] leading-tight">
-          O Trio por Detrás da Máquina
+          {tTeam.title}
         </h2>
         <p class="text-base sm:text-lg text-[#666666] max-w-3xl leading-relaxed">
-          O acrónimo <strong class="text-[#111111] font-bold">ALF</strong> sintetiza a união de <span class="text-[#111111] font-semibold">Alfredo</span>, <span class="text-[#111111] font-semibold">Luísa</span> e <span class="text-[#111111] font-semibold">Filipe</span>: uma interseção pragmática e complementar de Estratégia Corporativa, Ativação Comercial e Engenharia de Software.
+          {tTeam.desc}
         </p>
       </div>
 
       <div class="lg:col-span-4 lg:text-right">
         <div class="inline-block p-4 border border-zinc-200 bg-[#F9F9FB] text-left text-xs font-mono text-[#666666] space-y-1">
-          <div class="font-bold text-[#111111]">ESTRUTURA FUNDADORA</div>
-          <div>3 Sócios Operacionais Seniores</div>
-          <div class="text-[#E11D48] pt-1 font-semibold">Sem intermediários ou juniores.</div>
+          <div class="font-bold text-[#111111]">{tTeam.structureBadge}</div>
+          <div>{tTeam.structureTitle}</div>
+          <div class="text-[#E11D48] pt-1 font-semibold">{tTeam.structureSub}</div>
         </div>
       </div>
     </div>
@@ -123,8 +96,8 @@ const founders = [
     <!-- 3-Column Clean Biographical Layout (1px divider grid) -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-200 border border-zinc-200">
       {
-        founders.map((founder) => {
-          const Icon = founder.icon;
+        tTeam.founders.map((founder, idx) => {
+          const Icon = icons[idx] ?? Briefcase;
           return (
             <div class="bg-white p-8 sm:p-10 flex flex-col justify-between space-y-8 hover:bg-zinc-50/50 transition-colors">
               <div class="space-y-6">
@@ -161,7 +134,7 @@ const founders = [
                 <!-- Key Focus Competencies -->
                 <div class="pt-4 border-t border-zinc-100 space-y-2">
                   <span class="text-[11px] font-mono text-[#666666] uppercase tracking-wider block">
-                    Foco de Atuação:
+                    {tTeam.focusLabel}
                   </span>
                   <ul class="space-y-1.5 text-xs text-[#111111]">
                     {founder.focus.map((item) => (
@@ -177,7 +150,7 @@ const founders = [
               <!-- Footer Indicator -->
               <div class="pt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-[#666666]">
                 <span>PILAR: {founder.pillar}</span>
-                <span class="text-[#111111] font-semibold">PARTNER</span>
+                <span class="text-[#111111] font-semibold">{tTeam.partnerLabel}</span>
               </div>
             </div>
           );

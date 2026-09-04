@@ -1,16 +1,29 @@
 ---
 // src/components/Contact.astro
+import { type Lang, ui, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].contact;
+const formAction = lang === 'pt' ? '/sucesso' : '/en/sucesso';
 ---
 
-<section id="contacto" class="py-24 border-t border-zinc-200 bg-[#F9F9FB]">
+<!-- Section Container with dual ID support (#contacto & #contact) -->
+<section id="contacto" class="py-24 border-t border-zinc-200 bg-[#F9F9FB] relative">
+  <!-- Anchor alias for English navigation -->
+  <div id="contact" class="absolute -top-20"></div>
+
   <div class="max-w-4xl mx-auto px-6">
     <div class="mb-12">
-      <span class="text-xs font-mono tracking-widest text-[#E11D48] uppercase">[Diagnóstico & Intervenção]</span>
+      <span class="text-xs font-mono tracking-widest text-[#E11D48] uppercase">{t.badge}</span>
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#111111] mt-2">
-        Vamos desbloquear o crescimento do seu negócio?
+        {t.title}
       </h2>
       <p class="text-zinc-600 mt-4 text-base">
-        Preencha o formulário. Analisamos os estrangulamentos da sua operação e respondemos em 24 a 48 horas úteis.
+        {t.subhead}
       </p>
     </div>
 
@@ -20,38 +33,43 @@
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      action="/sucesso"
+      action={formAction}
       class="space-y-6"
     >
       <!-- Identificador do formulário para o bot de build da Netlify -->
       <input type="hidden" name="form-name" value="contacto-alfworks" />
+      <input type="hidden" name="idioma" value={lang} />
 
       <!-- Proteção anti-spam invisível (Honeypot) -->
       <p class="hidden">
-        <label>Não preencha este campo se for humano: <input name="bot-field" /></label>
+        <label>{t.form.honeypotLabel} <input name="bot-field" /></label>
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label for="nome" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">O seu Nome *</label>
+          <label for="nome" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+            {t.form.nameLabel}
+          </label>
           <input
             type="text"
             id="nome"
             name="nome"
             required
-            placeholder="ex: João Silva"
+            placeholder={t.form.namePlaceholder}
             class="w-full px-4 py-3 bg-white border border-zinc-300 rounded-none focus:outline-none focus:border-zinc-900 transition-colors text-sm"
           />
         </div>
 
         <div>
-          <label for="email" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">E-mail de Contacto *</label>
+          <label for="email" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+            {t.form.emailLabel}
+          </label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            placeholder="ex: joao@empresa.pt"
+            placeholder={t.form.emailPlaceholder}
             class="w-full px-4 py-3 bg-white border border-zinc-300 rounded-none focus:outline-none focus:border-zinc-900 transition-colors text-sm"
           />
         </div>
@@ -59,44 +77,50 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label for="empresa" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">Nome da Empresa / Website</label>
+          <label for="empresa" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+            {t.form.companyLabel}
+          </label>
           <input
             type="text"
             id="empresa"
             name="empresa"
-            placeholder="ex: Minha Empresa Lda / site.pt"
+            placeholder={t.form.companyPlaceholder}
             class="w-full px-4 py-3 bg-white border border-zinc-300 rounded-none focus:outline-none focus:border-zinc-900 transition-colors text-sm"
           />
         </div>
 
         <div>
-          <label for="area" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">Principal Área de Interesse *</label>
+          <label for="area" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+            {t.form.areaLabel}
+          </label>
           <select
             id="area"
             name="area"
             required
-            class="w-full px-4 py-3 bg-white border border-zinc-300 rounded-none focus:outline-none focus:border-zinc-900 transition-colors text-sm"
+            class="w-full px-4 py-3 bg-white border border-zinc-300 rounded-none focus:outline-none focus:border-zinc-900 transition-colors text-sm cursor-pointer"
           >
-            <option value="" disabled selected>Selecione uma opção</option>
-            <option value="intervencao-pme">Intervenção Rápida PME (Diagnóstico 7 Dias)</option>
-            <option value="operacoes">Otimização Operacional & Processos</option>
-            <option value="financas">Controlo Financeiro, Margens & Dashboards</option>
-            <option value="digital-vendas">Presença Digital & Máquina de Aquisição</option>
-            <option value="automacao-ia">Automação, Integrações & IA</option>
-            <option value="grandes-ativos">Grandes Ativos & Soluções Corporativas</option>
-            <option value="outro">Outro assunto</option>
+            <option value="" disabled selected>{t.form.areaPlaceholder}</option>
+            <option value="intervencao-pme">{t.form.options.pme}</option>
+            <option value="operacoes">{t.form.options.operations}</option>
+            <option value="financas">{t.form.options.finance}</option>
+            <option value="digital-vendas">{t.form.options.digital}</option>
+            <option value="automacao-ia">{t.form.options.automation}</option>
+            <option value="grandes-ativos">{t.form.options.corporate}</option>
+            <option value="outro">{t.form.options.other}</option>
           </select>
         </div>
       </div>
 
       <div>
-        <label for="mensagem" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">Resumo do Desafio / Gargalo Atual *</label>
+        <label for="mensagem" class="block text-xs font-mono uppercase tracking-wider text-zinc-700 mb-2">
+          {t.form.msgLabel}
+        </label>
         <textarea
           id="mensagem"
           name="mensagem"
           rows="4"
           required
-          placeholder="Onde é que a empresa está a perder mais tempo, dinheiro ou clientes atualmente?"
+          placeholder={t.form.msgPlaceholder}
           class="w-full px-4 py-3 bg-white border border-zinc-300 rounded-none focus:outline-none focus:border-zinc-900 transition-colors text-sm resize-y"
         ></textarea>
       </div>
@@ -106,7 +130,7 @@
           type="submit"
           class="w-full md:w-auto px-8 py-4 bg-[#111111] text-white hover:bg-[#E11D48] font-medium text-sm tracking-wide uppercase transition-colors cursor-pointer"
         >
-          Enviar Pedido de Diagnóstico &rarr;
+          {t.form.submit}
         </button>
       </div>
     </form>

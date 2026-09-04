@@ -1,10 +1,20 @@
 ---
 import { ArrowRight, ArrowUpRight, Cpu, Layers, Sparkles } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].hero;
+
+const contactHref = lang === 'pt' ? '#contacto' : '#contact';
 
 const modularTags = [
-  { id: '01', label: 'Operações', icon: Layers },
-  { id: '02', label: 'Presença Digital', icon: Sparkles },
-  { id: '03', label: 'Sistemas & IA', icon: Cpu },
+  { id: '01', label: t.tags.operations, icon: Layers },
+  { id: '02', label: t.tags.digitalPresence, icon: Sparkles },
+  { id: '03', label: t.tags.systemsAi, icon: Cpu },
 ];
 ---
 
@@ -15,15 +25,15 @@ const modularTags = [
       <div class="flex items-center gap-3">
         <span class="inline-flex items-center gap-1.5 text-[#111111] font-semibold">
           <span class="w-2 h-2 rounded-none bg-[#E11D48] animate-pulse"></span>
-          DISPONIBILIDADE
+          {t.availabilityBadge}
         </span>
         <span class="hidden sm:inline text-zinc-300">|</span>
-        <span class="hidden sm:inline">Q1/Q2 Intervenções Ativas: 2 Vagas Restantes</span>
+        <span class="hidden sm:inline">{t.availabilityText}</span>
       </div>
       <div class="flex items-center gap-4">
-        <span>SISTEMA: ALF-OS v2.4</span>
+        <span>{t.systemVersion}</span>
         <span class="text-zinc-300">|</span>
-        <span>LISBOA • PORTO • FUNCHAL</span>
+        <span>{t.locations}</span>
       </div>
     </div>
   </div>
@@ -48,29 +58,29 @@ const modularTags = [
 
           <!-- Bold Asymmetric Swiss Headline -->
           <h1 class="text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold tracking-tighter text-[#111111] leading-[1.04]">
-            Oficina de intervenção estratégica e entrega digital para PMEs.
+            {t.headline}
           </h1>
 
           <!-- High Information Clarity Subheadline -->
           <p class="text-lg sm:text-xl text-[#666666] max-w-2xl leading-relaxed font-normal">
-            Otimizamos a operação, modernizamos a presença online e resolvemos os nós operacionais que bloqueiam o crescimento do seu negócio.
+            {t.subheadline}
           </p>
         </div>
 
         <!-- Action CTAs -->
         <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
           <a
-            href="#contacto"
+            href={contactHref}
             class="group inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150"
           >
-            <span>Solicitar Intervenção</span>
+            <span>{t.ctaIntervention}</span>
             <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
             href="#venture-lab"
             class="group inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-white border border-zinc-300 text-[#111111] text-xs font-semibold uppercase tracking-wider hover:border-[#111111] hover:bg-[#111111] hover:text-white transition-all duration-150"
           >
-            <span>Explorar o Laboratório</span>
+            <span>{t.ctaLab}</span>
             <ArrowUpRight class="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
@@ -81,14 +91,14 @@ const modularTags = [
         <!-- Panel Header -->
         <div class="border-b border-zinc-200 p-6 bg-[#F9F9FB]">
           <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
-            <span>QUADRO OPERACIONAL</span>
-            <span class="font-bold text-[#E11D48]">DOC. 001</span>
+            <span>{t.panel.badge}</span>
+            <span class="font-bold text-[#E11D48]">{t.panel.doc}</span>
           </div>
           <h2 class="text-lg font-bold text-[#111111] mt-2 tracking-tight">
-            Modelo de Ação Direta
+            {t.panel.title}
           </h2>
           <p class="text-xs text-[#666666] mt-1">
-            Intervenções sem consultoria oca: implementação no terreno com entregáveis mensuráveis.
+            {t.panel.desc}
           </p>
         </div>
 
@@ -96,31 +106,31 @@ const modularTags = [
         <div class="divide-y divide-zinc-200">
           <div class="p-6 space-y-1">
             <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
-              <span>VELOCIDADE DE DIAGNÓSTICO</span>
-              <span class="font-bold text-[#111111]">72 HORAS</span>
+              <span>{t.panel.diagSpeed}</span>
+              <span class="font-bold text-[#111111]">{t.panel.diagVal}</span>
             </div>
             <p class="text-xs text-[#666666] leading-normal pt-1">
-              Avaliação de processos críticos e apresentação de plano corretivo de curto prazo.
+              {t.panel.diagDesc}
             </p>
           </div>
 
           <div class="p-6 space-y-1">
             <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
-              <span>EQUIPA DEDICADA</span>
-              <span class="font-bold text-[#111111]">SÓCIOS SENIORES</span>
+              <span>{t.panel.teamType}</span>
+              <span class="font-bold text-[#111111]">{t.panel.teamVal}</span>
             </div>
             <p class="text-xs text-[#666666] leading-normal pt-1">
-              Execução direta conduzida exclusivamente pelos fundadores (Alfredo, Luísa e Filipe).
+              {t.panel.teamDesc}
             </p>
           </div>
 
           <div class="p-6 space-y-1">
             <div class="flex items-center justify-between text-xs font-mono text-[#666666]">
-              <span>FOCO PRINCIPAL</span>
-              <span class="font-bold text-[#E11D48]">ROI OPERACIONAL</span>
+              <span>{t.panel.focusType}</span>
+              <span class="font-bold text-[#E11D48]">{t.panel.focusVal}</span>
             </div>
             <p class="text-xs text-[#666666] leading-normal pt-1">
-              Redução de custos ocultos e aumento imediato da capacidade produtiva da equipa.
+              {t.panel.focusDesc}
             </p>
           </div>
         </div>

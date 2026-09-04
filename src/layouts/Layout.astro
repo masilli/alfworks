@@ -1,19 +1,18 @@
 ---
 import '../styles/global.css';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: Lang;
 }
 
-const {
-  title = 'ALF WORKS — Oficina de Projetos & Venture Studio',
-  description = 'Consultoria estratégica e resolução de desafios operacionais para PMEs. Digital Studio, Venture Incubator e Sistemas de IA.',
-} = Astro.props;
+const { lang = defaultLang, title = ui[lang].meta.title, description = ui[lang].meta.description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="pt-PT" class="scroll-smooth">
+<html lang={lang === 'pt' ? 'pt-PT' : 'en'} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -1,59 +1,24 @@
 ---
 import { ArrowRight, BarChart3, Bot, CalendarCheck, Globe, Layers } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
 
-const pillars = [
-  {
-    number: '01',
-    title: 'Operações & Eficiência',
-    icon: Layers,
-    description:
-      'Mapeamento de processos, eliminação de tarefas manuais redundantes, organização de equipas e integração de colaboradores.',
-    subpoints: [
-      'Mapeamento detalhado de fluxos de trabalho',
-      'Eliminação cirúrgica de desperdício de tempo',
-      'Manuais de processo e onboarding de equipa',
-    ],
-  },
-  {
-    number: '02',
-    title: 'Finanças & Controlo de Gestão',
-    icon: BarChart3,
-    description:
-      'Diagnóstico de margens e pricing, previsão de tesouraria (cash-flow) e dashboards visuais para tomada de decisão em tempo real.',
-    subpoints: [
-      'Análise de rentabilidade por cliente e linha de serviço',
-      'Modelagem e controlo de fluxo de caixa operacional',
-      'Relatórios executivos e indicadores-chave (KPIs)',
-    ],
-  },
-  {
-    number: '03',
-    title: 'Presença Digital & Ativação Comercial',
-    icon: Globe,
-    description:
-      'Websites orientados à conversão de contactos, presença estratégica no Google e experiências/campanhas de atração local de clientes.',
-    subpoints: [
-      'Plataformas web de alta velocidade e conversão',
-      'Otimização de presença local e autoridade de marca',
-      'Mecanismos diretos de captação de potenciais clientes',
-    ],
-  },
-  {
-    number: '04',
-    title: 'Automação, Integrações & IA',
-    icon: Bot,
-    description:
-      'Conexão entre softwares dispersos (Faturação, CRM, Folhas de Cálculo), relatórios automáticos e assistentes de produtividade interna.',
-    subpoints: [
-      'Unificação de ferramentas e sincronização em tempo real',
-      'Relatórios e alertas automáticos para a gerência',
-      'Agentes e assistentes de IA para tarefas rotineiras',
-    ],
-  },
-];
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].consulting;
+
+const contactHref = lang === 'pt' ? '#contacto' : '#contact';
+
+const iconMap = [Layers, BarChart3, Globe, Bot];
 ---
 
-<section id="consultoria" class="border-b border-zinc-200 bg-white py-20 sm:py-28">
+<!-- Section Container with dual ID support (#consultoria & #consulting) -->
+<section id="consultoria" class="border-b border-zinc-200 bg-white py-20 sm:py-28 relative">
+  <!-- Anchor alias for English navigation -->
+  <div id="consulting" class="absolute -top-20"></div>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header (Swiss Asymmetric) -->
@@ -62,30 +27,30 @@ const pillars = [
         <!-- Technical Badge -->
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#F9F9FB] border border-zinc-200 text-xs font-mono font-bold uppercase tracking-wider text-[#111111]">
           <span class="w-2 h-2 bg-[#E11D48]"></span>
-          [Boutique de Intervenção Rápida]
+          {t.badge}
         </div>
 
         <!-- Main Headline -->
         <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-[#111111] leading-[1.06]">
-          Sabemos exatamente onde a sua empresa está a perder tempo, dinheiro e clientes.
+          {t.headline}
         </h2>
 
         <!-- Subhead -->
         <p class="text-base sm:text-lg text-[#666666] max-w-3xl leading-relaxed">
-          Não vendemos relatórios teóricos. Diagnosticamos os gargalos operacionais e financeiros, estruturamos a solução e deixamos os sistemas a funcionar.
+          {t.subhead}
         </p>
       </div>
 
       <div class="lg:col-span-4 lg:text-right">
         <div class="inline-block p-5 border border-zinc-200 bg-[#F9F9FB] text-left text-xs font-mono text-[#666666] space-y-1.5">
-          <div class="font-bold text-[#111111]">FILOSOFIA OPERACIONAL</div>
-          <div>Diagnóstico ➔ Ação ➔ Validação</div>
-          <div class="text-[#E11D48] pt-1 font-semibold">Execução sem ruído.</div>
+          <div class="font-bold text-[#111111]">{t.philosophyTitle}</div>
+          <div>{t.philosophyFlow}</div>
+          <div class="text-[#E11D48] pt-1 font-semibold">{t.philosophySub}</div>
         </div>
       </div>
     </div>
 
-    <!-- The Flagship Product Banner (Intervenção 7 Dias) -->
+    <!-- The Flagship Product Banner (Intervenção 7 Dias / 7-Day Sprint) -->
     <div class="mb-16 border border-zinc-200 bg-[#F9F9FB] p-8 sm:p-12 relative overflow-hidden">
       <!-- Left Swiss Red Accent Line -->
       <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#E11D48]"></div>
@@ -95,37 +60,37 @@ const pillars = [
           <div class="flex flex-wrap items-center gap-3">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold uppercase tracking-wider bg-white border border-zinc-200 text-[#E11D48]">
               <CalendarCheck class="w-3.5 h-3.5" />
-              INTERVENÇÃO EM 7 DIAS
+              {t.sprintBadge}
             </span>
             <span class="text-xs font-mono text-[#666666] uppercase tracking-wider">
-              FLAGSHIP SPRINT
+              {t.sprintType}
             </span>
           </div>
 
           <div>
             <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#111111]">
-              PME Action Sprint
+              {t.sprintTitle}
             </h3>
             <p class="text-xs sm:text-sm font-mono text-[#666666] mt-1">
-              (Auditoria rápida & Plano de Ação em 7 dias)
+              {t.sprintSub}
             </p>
           </div>
 
           <p class="text-sm sm:text-base text-[#666666] max-w-2xl leading-relaxed">
-            Analisamos Operações, Finanças, Digital, Tecnologia e Vendas para entregar prioridades imediatas de corte de desperdício e aumento de margem.
+            {t.sprintDesc}
           </p>
         </div>
 
         <div class="lg:col-span-4 lg:text-right flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-start lg:justify-center gap-3">
           <a
-            href="#contacto"
+            href={contactHref}
             class="group inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150 w-full sm:w-auto text-center"
           >
-            <span>Solicitar Diagnóstico Inicial</span>
+            <span>{t.sprintCta}</span>
             <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
           <span class="text-[11px] font-mono text-[#666666]">
-            Vagas limitadas por mês • Reunião direta com sócios
+            {t.sprintSpots}
           </span>
         </div>
       </div>
@@ -134,8 +99,8 @@ const pillars = [
     <!-- The 4-Pillar Modular Grid (Swiss 2x2 Grid with 1px zinc borders) -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 border border-zinc-200">
       {
-        pillars.map((pillar) => {
-          const Icon = pillar.icon;
+        t.pillars.map((pillar, index) => {
+          const Icon = iconMap[index] ?? Layers;
           return (
             <div class="bg-white p-8 sm:p-12 flex flex-col justify-between space-y-8 hover:bg-zinc-50/60 transition-colors">
               <div class="space-y-6">
@@ -176,7 +141,7 @@ const pillars = [
               <!-- Modular Card Footer -->
               <div class="pt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-[#666666]">
                 <span>PILAR {pillar.number}</span>
-                <span class="text-[#111111] font-semibold">ENTREGA TESTADA</span>
+                <span class="text-[#111111] font-semibold">{t.pillarFooter}</span>
               </div>
             </div>
           );

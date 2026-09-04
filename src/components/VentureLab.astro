@@ -1,48 +1,17 @@
 ---
 import { BookOpen, Cpu, FlaskConical, Laptop, ArrowUpRight } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
 
-const verticals = [
-  {
-    code: 'SEC-01',
-    title: 'Estúdio de Criação Digital',
-    badge: 'Done-For-You',
-    description:
-      'Desenvolvimento ágil de marcas, websites de alta performance e MVPs para PMEs e criadores.',
-    status: 'Entrega Contínua',
-    icon: Laptop,
-    tags: ['Next-Gen Web', 'Design Systems', 'Performance SSG'],
-  },
-  {
-    code: 'SEC-02',
-    title: 'Incubadora / Venture Studio',
-    badge: 'Iniciativa Própria',
-    description:
-      'Laboratório interno onde concebemos e lançamos micro-aplicações, ferramentas SaaS e produtos de nicho.',
-    status: 'Projetos Próprios',
-    icon: FlaskConical,
-    tags: ['Micro-SaaS', 'Validação Rápida', 'Bootstrap Studio'],
-  },
-  {
-    code: 'SEC-03',
-    title: 'Sistemas de Automação & IA',
-    badge: 'Inteligência Operacional',
-    description:
-      'Modernização de operações tradicionais através de pipelines de dados, automações de backoffice e agentes inteligentes.',
-    status: 'Implementação',
-    icon: Cpu,
-    tags: ['Agentes Autónomos', 'Pipelines ETL', 'Integração CRM'],
-  },
-  {
-    code: 'SEC-04',
-    title: 'Hub de Conteúdo & Recursos',
-    badge: 'Open Knowledge',
-    description:
-      'Partilha aberta da construção de negócios, frameworks e ferramentas para a comunidade empresarial.',
-    status: 'Comunidade',
-    icon: BookOpen,
-    tags: ['Playbooks Operacionais', 'Frameworks PME', 'Estudos de Caso'],
-  },
-];
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].ventureLab;
+
+const contactHref = lang === 'pt' ? '#contacto' : '#contact';
+
+const icons = [Laptop, FlaskConical, Cpu, BookOpen];
 ---
 
 <section id="venture-lab" class="border-b border-zinc-200 bg-[#F9F9FB] py-20 sm:py-28">
@@ -53,21 +22,21 @@ const verticals = [
       <div class="lg:col-span-8 space-y-4">
         <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#E11D48] uppercase tracking-widest">
           <span class="w-2 h-2 bg-[#E11D48]"></span>
-          02 / ECOSSISTEMA MULTIDISCIPLINAR
+          {t.badge}
         </div>
         <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tighter text-[#111111] leading-tight">
-          O Laboratório de Ideias & Projetos
+          {t.title}
         </h2>
         <p class="text-base sm:text-lg text-[#666666] max-w-3xl leading-relaxed">
-          A ALF Works opera como uma oficina multidisciplinar e centro de experimentação contínua. Desenvolvemos tanto soluções digitais sob medida para clientes selecionados como o nosso próprio portfólio de software, ferramentas e iniciativas proprietárias.
+          {t.desc}
         </p>
       </div>
 
       <div class="lg:col-span-4 lg:text-right">
         <div class="inline-block p-4 border border-zinc-200 bg-white text-left text-xs font-mono text-[#666666] space-y-1">
-          <div class="font-bold text-[#111111]">MODO: STUDIO & LAB</div>
-          <div>Bespoke Solutions + Internal IP</div>
-          <div class="text-[#E11D48] pt-1 font-semibold">4 Verticais Ativas</div>
+          <div class="font-bold text-[#111111]">{t.modeBadge}</div>
+          <div>{t.modeTitle}</div>
+          <div class="text-[#E11D48] pt-1 font-semibold">{t.modeSub}</div>
         </div>
       </div>
     </div>
@@ -75,8 +44,8 @@ const verticals = [
     <!-- 2x2 Modular Swiss Card Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
       {
-        verticals.map((item) => {
-          const Icon = item.icon;
+        t.verticals.map((item, idx) => {
+          const Icon = icons[idx] ?? Laptop;
           return (
             <div class="group border border-zinc-200 hover:border-[#111111] bg-white p-8 sm:p-10 flex flex-col justify-between space-y-8 transition-colors duration-200">
               
@@ -122,15 +91,15 @@ const verticals = [
               <div class="pt-6 border-t border-zinc-100 flex items-center justify-between">
                 <div class="inline-flex items-center gap-2 text-xs font-mono">
                   <span class="w-1.5 h-1.5 bg-[#E11D48]"></span>
-                  <span class="text-[#666666]">Status:</span>
+                  <span class="text-[#666666]">{t.statusLabel}</span>
                   <span class="font-bold text-[#111111]">[{item.status}]</span>
                 </div>
 
                 <a
-                  href="#contacto"
+                  href={contactHref}
                   class="text-xs font-mono text-[#111111] group-hover:text-[#E11D48] flex items-center gap-1 font-semibold transition-colors"
                 >
-                  <span>Saber Mais</span>
+                  <span>{t.learnMore}</span>
                   <ArrowUpRight class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </div>
