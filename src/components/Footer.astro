@@ -8,7 +8,6 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = ui[lang].footer;
-const tNav = ui[lang].nav;
 ---
 
 <footer class="border-t border-zinc-200 bg-white py-12">
@@ -29,15 +28,8 @@ const tNav = ui[lang].nav;
         <span class="text-[#111111] font-semibold">{t.baseNotice}</span>
       </div>
 
-      <!-- Navigation & Back to Top Anchor -->
-      <div class="flex items-center gap-6">
-        <div class="hidden sm:flex items-center gap-4 text-xs">
-          <a href={tNav.consultingHref} class="hover:text-[#111111] transition-colors">{tNav.consulting}</a>
-          <a href={tNav.ventureLabHref} class="hover:text-[#111111] transition-colors">{tNav.ventureLab}</a>
-          <a href={tNav.aboutHref} class="hover:text-[#111111] transition-colors">{tNav.about}</a>
-          <a href={tNav.contactHref} class="hover:text-[#111111] transition-colors">{tNav.contact}</a>
-        </div>
-
+      <!-- Back to Top Anchor -->
+      <div>
         <a
           href="#"
           aria-label={t.backToTop}
