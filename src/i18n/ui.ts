@@ -316,8 +316,6 @@ export const ui = {
     footer: {
       copyright: 'ALF Works © 2026 | Todos os direitos reservados.',
       email: 'info@alfworks.com',
-      linkedin: 'LinkedIn',
-      linkedinHref: 'https://linkedin.com/company/alfworks',
       baseNoticePrefix: 'Base Operacional:',
       baseNotice: 'Lisboa, Porto & Funchal, Portugal',
       backToTop: 'Voltar ao topo',
@@ -631,8 +629,6 @@ export const ui = {
     footer: {
       copyright: 'ALF Works © 2026 | All rights reserved.',
       email: 'info@alfworks.com',
-      linkedin: 'LinkedIn',
-      linkedinHref: 'https://linkedin.com/company/alfworks',
       baseNoticePrefix: 'Operating Hubs:',
       baseNotice: 'Lisbon, Porto & Funchal, Portugal',
       backToTop: 'Back to top',

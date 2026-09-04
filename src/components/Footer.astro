@@ -1,5 +1,5 @@
 ---
-import { ArrowUp, ArrowUpRight, Mail } from 'lucide-astro';
+import { ArrowUp } from 'lucide-astro';
 import { type Lang, ui, defaultLang } from '../i18n/ui';
 
 interface Props {
@@ -35,18 +35,8 @@ const t = ui[lang].footer;
         <span class="text-[#111111] font-semibold">{t.baseNotice}</span>
       </div>
 
-      <!-- Social & Back to Top Anchor -->
-      <div class="flex items-center gap-5">
-        <a
-          href={t.linkedinHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-[#666666] hover:text-[#111111] transition-colors"
-        >
-          <span>{t.linkedin}</span>
-          <ArrowUpRight class="w-3 h-3" />
-        </a>
-
+      <!-- Back to Top Anchor -->
+      <div>
         <a
           href="#"
           aria-label={t.backToTop}
