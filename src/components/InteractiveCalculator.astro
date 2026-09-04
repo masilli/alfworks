@@ -1,0 +1,239 @@
+---
+import { ArrowRight, Calculator, Clock, Euro, TrendingDown } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].calculator;
+
+const contactHref = lang === 'pt' ? '#contacto' : '#contact';
+---
+
+<section id="calculadora" class="border-b border-zinc-200 bg-[#F9F9FB] py-20 sm:py-24 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header (Swiss Asymmetric) -->
+    <div class="max-w-3xl mb-14 space-y-4">
+      <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#E11D48] uppercase tracking-widest">
+        <span class="w-2 h-2 bg-[#E11D48]"></span>
+        <span>{t.tag}</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tighter text-[#111111] leading-tight">
+        {t.title}
+      </h2>
+
+      <p class="text-base sm:text-lg text-[#666666] leading-relaxed">
+        {t.desc}
+      </p>
+    </div>
+
+    <!-- 2-Column Modular Interactive Matrix -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Left Column: Range Sliders (7 cols) -->
+      <div class="lg:col-span-7 bg-white border border-zinc-200 p-8 sm:p-12 flex flex-col justify-between space-y-10">
+        
+        <div class="space-y-10">
+          <!-- Slider 1: Team Size -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <label for="team-size-slider" class="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-[#111111]">
+                {t.teamSizeLabel}
+              </label>
+              <div class="flex items-baseline gap-1.5 bg-[#F9F9FB] border border-zinc-200 px-3 py-1">
+                <span id="team-size-val" class="font-mono text-xl font-extrabold text-[#111111]">12</span>
+                <span class="text-xs font-mono text-[#666666]">{t.teamSizeUnit}</span>
+              </div>
+            </div>
+
+            <input
+              type="range"
+              id="team-size-slider"
+              min="1"
+              max="50"
+              value="12"
+              step="1"
+              class="w-full h-2 bg-zinc-200 rounded-none appearance-none cursor-pointer accent-[#111111] focus:outline-none"
+              aria-label={t.teamSizeLabel}
+            />
+
+            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+              <span>1 colab.</span>
+              <span>25 colab.</span>
+              <span>50 colab.</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Hours per Employee Weekly -->
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <label for="hours-slider" class="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-[#111111]">
+                {t.hoursLabel}
+              </label>
+              <div class="flex items-baseline gap-1.5 bg-[#F9F9FB] border border-zinc-200 px-3 py-1">
+                <span id="hours-val" class="font-mono text-xl font-extrabold text-[#111111]">6</span>
+                <span class="text-xs font-mono text-[#666666]">{t.hoursUnit}</span>
+              </div>
+            </div>
+
+            <input
+              type="range"
+              id="hours-slider"
+              min="1"
+              max="20"
+              value="6"
+              step="1"
+              class="w-full h-2 bg-zinc-200 rounded-none appearance-none cursor-pointer accent-[#111111] focus:outline-none"
+              aria-label={t.hoursLabel}
+            />
+
+            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+              <span>1 h/sem</span>
+              <span>10 h/sem</span>
+              <span>20 h/sem</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explanatory note -->
+        <div class="pt-6 border-t border-zinc-100 flex items-center gap-3 text-xs font-mono text-[#666666]">
+          <Clock class="w-4 h-4 text-[#E11D48] flex-shrink-0" />
+          <span>Fricções comuns: folhas de cálculo duplicadas, reconciliação manual e tarefas repetitivas de backoffice.</span>
+        </div>
+
+      </div>
+
+      <!-- Right Column: High-Impact Output Matrix (5 cols) -->
+      <div class="lg:col-span-5 bg-[#111111] text-white p-8 sm:p-12 border border-zinc-900 flex flex-col justify-between space-y-8 relative overflow-hidden">
+        
+        <!-- Subtle Top Matrix Tag -->
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
+          <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider">MÉTRICAS ESTIMADAS</span>
+          <div class="flex items-center gap-1.5 text-xs font-mono text-[#E11D48]">
+            <TrendingDown class="w-3.5 h-3.5" />
+            <span>DESPERDÍCIO ANUAL</span>
+          </div>
+        </div>
+
+        <!-- Calculated Metrics -->
+        <div class="space-y-8">
+          
+          <!-- Metric 1: Hours Lost -->
+          <div class="space-y-1.5">
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider block">
+              {t.outputHoursLabel}
+            </span>
+            <div class="flex items-baseline gap-2">
+              <span id="calc-hours-lost" class="text-4xl sm:text-5xl font-black font-mono tracking-tight text-white">
+                3.456
+              </span>
+              <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider">
+                {t.outputHoursUnit}
+              </span>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="w-full h-px bg-zinc-800"></div>
+
+          <!-- Metric 2: Capital Inefficiency -->
+          <div class="space-y-1.5">
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider block">
+              {t.outputCostLabel}
+            </span>
+            <div class="flex items-baseline gap-2">
+              <span id="calc-cost-lost" class="text-4xl sm:text-5xl font-black font-mono tracking-tight text-[#E11D48]">
+                76.032 €
+              </span>
+            </div>
+          </div>
+
+          <p class="text-[11px] font-mono text-zinc-500 leading-normal">
+            {t.disclaimer}
+          </p>
+
+        </div>
+
+        <!-- CTA Action -->
+        <div class="pt-4 border-t border-zinc-800">
+          <a
+            href={contactHref}
+            id="calc-cta-btn"
+            class="group inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-white text-[#111111] hover:bg-[#E11D48] hover:text-white text-xs font-semibold uppercase tracking-wider transition-colors duration-150 w-full text-center cursor-pointer"
+          >
+            <span>{t.cta}</span>
+            <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script is:inline define:vars={{ lang }}>
+  (function initCalculator() {
+    const teamSlider = document.getElementById('team-size-slider');
+    const hoursSlider = document.getElementById('hours-slider');
+    const teamVal = document.getElementById('team-size-val');
+    const hoursVal = document.getElementById('hours-val');
+    const hoursLostDisplay = document.getElementById('calc-hours-lost');
+    const costLostDisplay = document.getElementById('calc-cost-lost');
+    const ctaBtn = document.getElementById('calc-cta-btn');
+
+    if (!teamSlider || !hoursSlider || !teamVal || !hoursVal || !hoursLostDisplay || !costLostDisplay) {
+      return;
+    }
+
+    const formatter = new Intl.NumberFormat(lang === 'pt' ? 'pt-PT' : 'en-US');
+
+    function updateMetrics() {
+      const team = parseInt(teamSlider.value, 10);
+      const hours = parseInt(hoursSlider.value, 10);
+
+      teamVal.textContent = team;
+      hoursVal.textContent = hours;
+
+      const weeksPerYear = 48;
+      const hourlyRate = 22;
+
+      const totalHoursLost = team * hours * weeksPerYear;
+      const totalCostLost = totalHoursLost * hourlyRate;
+
+      hoursLostDisplay.textContent = formatter.format(totalHoursLost);
+      costLostDisplay.textContent = `${formatter.format(totalCostLost)} €`;
+    }
+
+    teamSlider.addEventListener('input', updateMetrics);
+    hoursSlider.addEventListener('input', updateMetrics);
+
+    // Initial run
+    updateMetrics();
+
+    // Contextual scroll and auto-selection when clicking the CTA
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', () => {
+        setTimeout(() => {
+          const areaSelect = document.getElementById('area');
+          if (areaSelect) {
+            areaSelect.value = 'operacoes';
+          }
+          const msgInput = document.getElementById('mensagem');
+          if (msgInput && !msgInput.value) {
+            const team = teamSlider.value;
+            const hours = hoursSlider.value;
+            msgInput.value = lang === 'pt'
+              ? `[Cálculo de Desperdício]: Equipa com ${team} colaboradores com aprox. ${hours}h semanais em processos manuais.`
+              : `[Friction Audit]: Team of ${team} employees with approx. ${hours}h weekly on manual workflows.`;
+          }
+        }, 100);
+      });
+    }
+  })();
+</script>

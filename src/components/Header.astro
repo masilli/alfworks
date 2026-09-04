@@ -8,6 +8,7 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = ui[lang].nav;
+const statusText = ui[lang].headerStatus.statusText;
 
 const homeHref = lang === 'pt' ? '/' : '/en';
 
@@ -23,14 +24,27 @@ const navItems = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       
-      <!-- Monospaced / Bold Brand Mark -->
-      <a
-        href={homeHref}
-        class="group flex items-center gap-2.5 font-mono font-bold text-base sm:text-lg tracking-wider text-[#111111] transition-colors"
-      >
-        <span class="inline-block w-2.5 h-2.5 bg-[#E11D48] transition-transform group-hover:scale-110"></span>
-        <span>ALF WORKS</span>
-      </a>
+      <!-- Brand & Operational Status Indicator -->
+      <div class="flex items-center gap-5 sm:gap-6">
+        <a
+          href={homeHref}
+          class="group flex items-center gap-2.5 font-mono font-bold text-base sm:text-lg tracking-wider text-[#111111] transition-colors flex-shrink-0"
+        >
+          <span class="inline-block w-2.5 h-2.5 bg-[#E11D48] transition-transform group-hover:scale-110"></span>
+          <span>ALF WORKS</span>
+        </a>
+
+        <!-- Header Operational Status Badge with Pulsing Emerald Dot -->
+        <div class="hidden lg:inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-zinc-200 text-[11px] font-mono text-[#111111]">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="tracking-wider uppercase font-semibold text-[#111111]">
+            {statusText}
+          </span>
+        </div>
+      </div>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8">
@@ -109,6 +123,18 @@ const navItems = [
     class="hidden md:hidden border-t border-zinc-200 bg-[#F9F9FB] px-4 pt-4 pb-6 space-y-3"
   >
     <div class="flex flex-col space-y-3">
+      
+      <!-- Mobile Operational Status Badge -->
+      <div class="flex items-center gap-2 text-xs font-mono text-[#111111] border-b border-zinc-100 pb-3">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="tracking-wider uppercase font-semibold">
+          {statusText}
+        </span>
+      </div>
+
       {
         navItems.map((item) => (
           <a
