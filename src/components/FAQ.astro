@@ -1,0 +1,66 @@
+---
+import { Plus } from 'lucide-astro';
+import { type Lang, ui, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = ui[lang].faq;
+---
+
+<section id="faq" class="border-b border-zinc-200 bg-white py-20 sm:py-28 relative">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header (Swiss Asymmetric) -->
+    <div class="mb-14 sm:mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#E11D48] uppercase tracking-widest">
+        <span class="w-2 h-2 bg-[#E11D48]"></span>
+        <span>{t.tag}</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tighter text-[#111111] leading-tight">
+        {t.title}
+      </h2>
+
+      <p class="text-base sm:text-lg text-[#666666] max-w-2xl leading-relaxed">
+        {t.desc}
+      </p>
+    </div>
+
+    <!-- 4-Item Accessible Swiss Accordion -->
+    <div class="space-y-4">
+      {
+        t.items.map((item, index) => {
+          const itemNumber = String(index + 1).padStart(2, '0');
+          return (
+            <details class="group border border-zinc-200 bg-[#F9F9FB] transition-all duration-200 open:bg-white open:border-zinc-400">
+              <summary class="flex items-center justify-between p-6 sm:p-8 cursor-pointer list-none focus:outline-none select-none">
+                <div class="flex items-start sm:items-center gap-4 sm:gap-6 pr-4">
+                  <span class="font-mono text-xs sm:text-sm font-bold text-[#E11D48] pt-1 sm:pt-0">
+                    {itemNumber}
+                  </span>
+                  <h3 class="text-base sm:text-lg font-bold text-[#111111] tracking-tight text-left">
+                    {item.question}
+                  </h3>
+                </div>
+
+                <div class="w-8 h-8 flex items-center justify-center border border-zinc-200 bg-white group-open:bg-[#111111] group-open:border-[#111111] group-open:text-white text-[#111111] transition-all flex-shrink-0">
+                  <Plus class="w-4 h-4 transition-transform duration-200 group-open:rotate-45" />
+                </div>
+              </summary>
+
+              <div class="px-6 pb-6 sm:px-8 sm:pb-8 pt-2 text-sm sm:text-base text-[#666666] leading-relaxed border-t border-zinc-100">
+                <p class="pl-0 sm:pl-10">
+                  {item.answer}
+                </p>
+              </div>
+            </details>
+          );
+        })
+      }
+    </div>
+
+  </div>
+</section>

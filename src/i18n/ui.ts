@@ -15,15 +15,17 @@ export const ui = {
         'Consultoria estratégica e resolução de desafios operacionais para PMEs. Digital Studio, Venture Incubator e Sistemas de IA.',
     },
     nav: {
-      consulting: 'Consultoria',
-      consultingHref: '#consultoria',
+      services: 'Serviços',
+      servicesHref: '#servicos',
       ventureLab: 'Venture Lab',
       ventureLabHref: '#venture-lab',
       about: 'Sobre',
       aboutHref: '#sobre',
+      faq: 'FAQ',
+      faqHref: '#faq',
       contact: 'Contacto',
       contactHref: '#contacto',
-      cta: 'Falar Connosco',
+      cta: 'Diagnóstico',
     },
     headerStatus: {
       statusText: 'OPERACIONAL — 2 VAGAS DE SPRINT ABERTAS ESTE MÊS',
@@ -284,8 +286,38 @@ export const ui = {
       desc: 'Obrigado pelo contacto. A nossa equipa irá analisar o desafio operacional da sua empresa e responder no prazo de 24 a 48 horas úteis.',
       backHome: 'Voltar à Página Principal',
     },
+    faq: {
+      tag: '[ESCLARECIMENTOS TÉCNICOS]',
+      title: 'Perguntas Frequentes',
+      desc: 'Respostas diretas sobre o nosso modelo de intervenção rápida, metodologia e confidencialidade.',
+      items: [
+        {
+          question: 'A nossa empresa tem de mudar de software ou sistemas atuais?',
+          answer:
+            'Não. O nosso princípio fundamental é rentabilizar ao máximo a infraestrutura tecnológica que a sua empresa já utiliza. Integramos os seus softwares atuais (ERP, CRM, faturação, folhas de cálculo) através de APIs, automações de backoffice e fluxos diretos de dados. Só recomendamos a transição para uma nova ferramenta quando o sistema legado representa um estrangulamento incontornável de custos ou de segurança.',
+        },
+        {
+          question: 'Quanto tempo dos nossos colaboradores é exigido durante a intervenção de 7 dias?',
+          answer:
+            'O modelo foi desenhado especificamente para não sobrecarregar a rotina operacional da sua equipa. Exigimos apenas 2 a 3 sessões de alinhamento com a gerência e os responsáveis-chave de processos (máximo 4 a 6 horas no total ao longo da semana). Toda a análise profunda de fluxos, auditoria financeira e mapeamento técnico é executada diretamente pelos nossos sócios seniores sem ruído para a operação.',
+        },
+        {
+          question: 'Como é garantida a confidencialidade dos dados financeiros e operacionais?',
+          answer:
+            'Tratamos todos os dados com o mais elevado rigor ético e institucional. Antes do arranque de qualquer diagnóstico, assinamos um Acordo de Confidencialidade (NDA) juridicamente vinculativo. As credenciais e dados recolhidos são encriptados e acedidos exclusivamente pelos 3 sócios operacionais (Alfredo, Luísa e Filipe), sem qualquer transmissão a terceiros.',
+        },
+        {
+          question: 'A implementação técnica posterior é obrigatória após o plano de ação?',
+          answer:
+            'Não. O "PME Action Sprint" entrega um plano de ação 100% acionável e independente, com prioridades orçamentadas, arquitetura recomendada e passos de execução detalhados que a sua equipa interna pode implementar autonomamente. No entanto, se preferir uma execução "chave-na-mão", a nossa equipa pode assumir a implementação direta com garantia técnica total.',
+        },
+      ],
+    },
     footer: {
       copyright: 'ALF Works © 2026 | Todos os direitos reservados.',
+      email: 'info@alfworks.com',
+      linkedin: 'LinkedIn',
+      linkedinHref: 'https://linkedin.com/company/alfworks',
       baseNoticePrefix: 'Base Operacional:',
       baseNotice: 'Lisboa, Porto & Funchal, Portugal',
       backToTop: 'Voltar ao topo',
@@ -298,15 +330,17 @@ export const ui = {
         'Strategic consulting and operational troubleshooting for SMEs. Digital Studio, Venture Incubator, and AI Systems.',
     },
     nav: {
-      consulting: 'Consulting',
-      consultingHref: '#consulting',
+      services: 'Services',
+      servicesHref: '#services',
       ventureLab: 'Venture Lab',
       ventureLabHref: '#venture-lab',
       about: 'About',
       aboutHref: '#about',
+      faq: 'FAQ',
+      faqHref: '#faq',
       contact: 'Contact',
       contactHref: '#contact',
-      cta: 'Get in Touch',
+      cta: 'Audit',
     },
     headerStatus: {
       statusText: 'OPERATIONAL — 2 SPRINT SLOTS OPEN THIS MONTH',
@@ -567,8 +601,38 @@ export const ui = {
       desc: 'Thank you for reaching out. Our operating partners will review your operational challenge and reply within 24 to 48 business hours.',
       backHome: 'Return to Homepage',
     },
+    faq: {
+      tag: '[TECHNICAL FAQ]',
+      title: 'Frequently Asked Questions',
+      desc: 'Direct answers regarding our rapid intervention sprint, methodology, and data confidentiality.',
+      items: [
+        {
+          question: 'Do we have to change our current software or existing tools?',
+          answer:
+            'No. Our core principle is to maximize the ROI of your existing software stack. We integrate your current tools (ERP, CRM, invoicing, spreadsheets) using robust APIs, data pipelines, and back-office automations. We only recommend transitioning to new platforms if a legacy tool creates an insurmountable bottleneck in performance, cost, or security.',
+        },
+        {
+          question: 'How much time is required from our staff during the 7-day sprint?',
+          answer:
+            'The sprint model is purpose-built to avoid disrupting your daily business operations. We require only 2 to 3 targeted working sessions with executive leaders and process owners (totaling 4 to 6 hours across the entire week). The deep dive workflow auditing, financial margin analysis, and technical mapping are executed directly by our senior partners behind the scenes.',
+        },
+        {
+          question: 'How is data confidentiality protected for financial and operational records?',
+          answer:
+            'We treat all operational and financial records with strict institutional rigor. Prior to starting any diagnostic sprint, we sign a legally binding Non-Disclosure Agreement (NDA). All shared credentials and data remain fully encrypted, accessible exclusively by the 3 senior operating partners (Alfredo, Luísa, and Filipe), and are never shared with third parties.',
+        },
+        {
+          question: 'Is technical implementation mandatory after the roadmap delivery?',
+          answer:
+            'No. The "SME Action Sprint" delivers an independent, 100% actionable execution roadmap with prioritized milestones, budget estimates, and step-by-step blueprints that your internal team can implement independently. However, if you prefer turnkey execution, our team can handle the hands-on engineering and deployment with end-to-end operational guarantees.',
+        },
+      ],
+    },
     footer: {
       copyright: 'ALF Works © 2026 | All rights reserved.',
+      email: 'info@alfworks.com',
+      linkedin: 'LinkedIn',
+      linkedinHref: 'https://linkedin.com/company/alfworks',
       baseNoticePrefix: 'Operating Hubs:',
       baseNotice: 'Lisbon, Porto & Funchal, Portugal',
       backToTop: 'Back to top',

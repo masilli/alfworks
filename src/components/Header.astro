@@ -8,24 +8,23 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = ui[lang].nav;
-const statusText = ui[lang].headerStatus.statusText;
 
 const homeHref = lang === 'pt' ? '/' : '/en';
 
 const navItems = [
-  { label: t.consulting, href: t.consultingHref },
+  { label: t.services, href: t.servicesHref },
   { label: t.ventureLab, href: t.ventureLabHref },
   { label: t.about, href: t.aboutHref },
-  { label: t.contact, href: t.contactHref },
+  { label: t.faq, href: t.faqHref },
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full bg-[#F9F9FB]/95 backdrop-blur-sm border-b border-zinc-200">
+<header class="sticky top-0 z-50 w-full bg-[#F9F9FB]/90 backdrop-blur-md border-b border-zinc-200/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       
-      <!-- Brand & Operational Status Indicator -->
-      <div class="flex items-center gap-5 sm:gap-6">
+      <!-- Zone 1 (Left): Clean, Bold Brand Mark -->
+      <div class="flex items-center">
         <a
           href={homeHref}
           class="group flex items-center gap-2.5 font-mono font-bold text-base sm:text-lg tracking-wider text-[#111111] transition-colors flex-shrink-0"
@@ -33,26 +32,15 @@ const navItems = [
           <span class="inline-block w-2.5 h-2.5 bg-[#E11D48] transition-transform group-hover:scale-110"></span>
           <span>ALF WORKS</span>
         </a>
-
-        <!-- Header Operational Status Badge with Pulsing Emerald Dot -->
-        <div class="hidden lg:inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-zinc-200 text-[11px] font-mono text-[#111111]">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span class="tracking-wider uppercase font-semibold text-[#111111]">
-            {statusText}
-          </span>
-        </div>
       </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8">
+      <!-- Zone 2 (Center): Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 lg:gap-10">
         {
           navItems.map((item) => (
             <a
               href={item.href}
-              class="text-sm font-medium text-[#666666] hover:text-[#111111] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#111111] hover:after:w-full after:transition-all"
+              class="text-xs lg:text-sm font-mono tracking-wider uppercase text-[#666666] hover:text-[#111111] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#111111] hover:after:w-full after:transition-all"
             >
               {item.label}
             </a>
@@ -60,14 +48,14 @@ const navItems = [
         }
       </nav>
 
-      <!-- Language Switcher & High-Contrast CTA Button & Mobile Toggle -->
+      <!-- Zone 3 (Right): Language Switcher & High-Contrast CTA Button -->
       <div class="flex items-center gap-3 sm:gap-4">
         
         <!-- Swiss Minimalist Language Switcher -->
         <div class="inline-flex items-center border border-zinc-200 bg-white text-xs font-mono">
           <a
             href="/"
-            class={`px-2 py-1 transition-colors ${
+            class={`px-2.5 py-1.5 transition-colors ${
               lang === 'pt'
                 ? 'bg-[#111111] text-[#F9F9FB] font-bold'
                 : 'text-[#666666] hover:text-[#111111] hover:bg-zinc-50'
@@ -77,10 +65,10 @@ const navItems = [
           >
             PT
           </a>
-          <span class="w-px h-3 bg-zinc-200"></span>
+          <span class="w-px h-3.5 bg-zinc-200"></span>
           <a
             href="/en"
-            class={`px-2 py-1 transition-colors ${
+            class={`px-2.5 py-1.5 transition-colors ${
               lang === 'en'
                 ? 'bg-[#111111] text-[#F9F9FB] font-bold'
                 : 'text-[#666666] hover:text-[#111111] hover:bg-zinc-50'
@@ -95,7 +83,7 @@ const navItems = [
         <!-- High-Contrast CTA Button -->
         <a
           href={t.contactHref}
-          class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150"
+          class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors duration-150"
         >
           <span>{t.cta}</span>
           <ArrowUpRight class="w-3.5 h-3.5" />
@@ -120,26 +108,14 @@ const navItems = [
   <!-- Mobile Dropdown Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden border-t border-zinc-200 bg-[#F9F9FB] px-4 pt-4 pb-6 space-y-3"
+    class="hidden md:hidden border-t border-zinc-200/60 bg-[#F9F9FB] px-4 pt-4 pb-6 space-y-4"
   >
     <div class="flex flex-col space-y-3">
-      
-      <!-- Mobile Operational Status Badge -->
-      <div class="flex items-center gap-2 text-xs font-mono text-[#111111] border-b border-zinc-100 pb-3">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span>
-        <span class="tracking-wider uppercase font-semibold">
-          {statusText}
-        </span>
-      </div>
-
       {
         navItems.map((item) => (
           <a
             href={item.href}
-            class="mobile-nav-link text-base font-medium text-[#666666] hover:text-[#111111] py-2 border-b border-zinc-100 transition-colors"
+            class="mobile-nav-link text-sm font-mono uppercase tracking-wider text-[#666666] hover:text-[#111111] py-2 border-b border-zinc-100 transition-colors"
           >
             {item.label}
           </a>
@@ -152,7 +128,7 @@ const navItems = [
         <div class="inline-flex items-center border border-zinc-200 bg-white text-xs font-mono">
           <a
             href="/"
-            class={`px-2.5 py-1 ${
+            class={`px-3 py-1.5 ${
               lang === 'pt'
                 ? 'bg-[#111111] text-white font-bold'
                 : 'text-[#666666]'
@@ -160,10 +136,10 @@ const navItems = [
           >
             PT
           </a>
-          <span class="w-px h-3 bg-zinc-200"></span>
+          <span class="w-px h-3.5 bg-zinc-200"></span>
           <a
             href="/en"
-            class={`px-2.5 py-1 ${
+            class={`px-3 py-1.5 ${
               lang === 'en'
                 ? 'bg-[#111111] text-white font-bold'
                 : 'text-[#666666]'
@@ -177,7 +153,7 @@ const navItems = [
       <div class="pt-2">
         <a
           href={t.contactHref}
-          class="mobile-nav-link flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#111111] text-[#F9F9FB] text-sm font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors"
+          class="mobile-nav-link flex items-center justify-center gap-2 w-full px-4 py-3.5 bg-[#111111] text-[#F9F9FB] text-xs font-semibold uppercase tracking-wider hover:bg-[#E11D48] transition-colors"
         >
           <span>{t.cta}</span>
           <ArrowUpRight class="w-4 h-4" />

@@ -14,9 +14,11 @@ const contactHref = lang === 'pt' ? '#contacto' : '#contact';
 const iconMap = [Layers, BarChart3, Globe, Bot];
 ---
 
-<!-- Section Container with dual ID support (#consultoria & #consulting) -->
-<section id="consultoria" class="border-b border-zinc-200 bg-white py-20 sm:py-28 relative">
-  <!-- Anchor alias for English navigation -->
+<!-- Section Container with multi-anchor support (#servicos, #consultoria, #services, #consulting) -->
+<section id="servicos" class="border-b border-zinc-200 bg-white py-20 sm:py-28 relative">
+  <!-- Anchor aliases for legacy links and English navigation -->
+  <div id="consultoria" class="absolute -top-20"></div>
+  <div id="services" class="absolute -top-20"></div>
   <div id="consulting" class="absolute -top-20"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

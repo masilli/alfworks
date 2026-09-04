@@ -2,10 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
-import InteractiveCalculator from '../../components/InteractiveCalculator.astro';
 import ConsultingHighlight from '../../components/ConsultingHighlight.astro';
+import InteractiveCalculator from '../../components/InteractiveCalculator.astro';
 import VentureLab from '../../components/VentureLab.astro';
 import Team from '../../components/Team.astro';
+import FAQ from '../../components/FAQ.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 ---
@@ -17,17 +18,20 @@ import Footer from '../../components/Footer.astro';
     <!-- Hero Section -->
     <Hero lang="en" />
 
-    <!-- Interactive SME Friction & Waste Calculator -->
-    <InteractiveCalculator lang="en" />
-
-    <!-- Primary Spotlight: Consulting Section (#consulting) -->
+    <!-- Primary Spotlight: Services & 4 Consulting Pillars (#services / #consulting) -->
     <ConsultingHighlight lang="en" />
+
+    <!-- Interactive SME Friction & Waste Calculator (Right after pillars, before the Lab) -->
+    <InteractiveCalculator lang="en" />
 
     <!-- Venture Lab & Studio Verticals (#venture-lab) -->
     <VentureLab lang="en" />
 
-    <!-- Team & Studio Identity (#about) -->
+    <!-- Team & Studio Identity & Corporate Module (#about) -->
     <Team lang="en" />
+
+    <!-- Technical FAQ Accordion (#faq) -->
+    <FAQ lang="en" />
 
     <!-- Contact & Diagnostic Request (#contact) -->
     <Contact lang="en" />
